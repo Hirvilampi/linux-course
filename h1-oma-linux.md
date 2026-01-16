@@ -97,12 +97,21 @@ tähän pari kuvaa
 
 sit asennus ja annetut tiedot
 
+![specify virtual hardware](../h1images/h1_1.png)
+
 18:40 nyt ihmettelen, että tuo ei suoraan anna tuota create virtual hard disk
 - se löytyykin storagesta ja näitä tekstejä voi klikata
 - luon tänne uuden 60 gigan levyn
 
+![virtual machine summary](../h1images/h1_2.png)
+
+Jotain on siis nyt saatu jo tehtyä
+![virtualBox manager](../h1images/h1_4_vbox_manager.png)
+
 18:45 Virtualbox on asennettu yritin käynnistää virtuaalikonetta, mutta saan virheen: KÄYNNISTÄESSÄ VIRHE: 
 VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
+
+![powering up error](../h1images/h1_5_vbox_error.png)
 
 Kysyn ChatGTP:ltä syöttäen tuon virheen ja kysyen mikä virhe. Selviää, että koska asensin
 KVM managerin, niin yritän ajaa VirtualBoxia KVM-virtuaalikoneen sisällä.. Mutta siis, 
@@ -160,6 +169,8 @@ irqbypass              12288  1 kvm*
 
 16:29 käynnistys virtuaalikoneessa ei onnistu tällä ohjeella. Palaan kokeilemaan google tuloksia
 
+![in terminal we see kvm runnin](../h1images/h1_6_kvm_running.png)
+
 16:31 löytyy sivu, jossa annetaan toinen käsky millä poistaa KVM. Sivusto: https://avz.org.ua/wp/2025/04/25/virtualbox-virtual-machine-not-started-with-verr_vmx_in_vmx_root_mode-error/
 
 *Solution:
@@ -216,7 +227,7 @@ kokeilen: lsmod | grep kvm
 Vastauksena ei tule mitään, eli kyseiset moduulit eivät enää pyöri. Kokeilen tässä vaiheessa toimiiko virtuaalikone jo nyt.
 Käynnistyi. Hienoa
 
-![virtual machine started](./virtualmachine-started.png)
+![virtual machine started](../h1images/virtualmachine-started.png)
 
 Ohjeet jatkavat siitä, että miten kvm estetään pysyvästä. Otan nämä talteen, sillä saattaahan olla,etä kvm latautuu aina koneen käynnistäessä uudestaan.
 Toisaalta voisin kai poistaa kvm: myös. Tässä kuitenkin ohjeet kvm:n käynnistyksen estämiseen:
@@ -255,8 +266,11 @@ reboot
 17:51 restart
 17:52 kaikkihan näyttää pelittävän
 17:56 virtualbox guest additions.. kai tämä on tarkoitus asentaa
+![virtualbox guest additions](../h1images/vboxgas_star.png)
 18:00 asennettu ohjeiden mukaan, ei virheitä, ei myöskään sudo bash VBoxLinuxAdditions.run käytettäessä
+![virtualbox gues additions installing in terminal](../h1images/vboxgas_install.png)
 18:02 uudelleen käynnistys ja snapshot
+![snapshot1](../h1images/snapshot1.png)
 
 
 
