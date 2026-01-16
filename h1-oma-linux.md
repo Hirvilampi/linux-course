@@ -205,11 +205,35 @@ libvirtd.socket, libvirtd-ro.socket, libvirtd-admin.socket
 Stopping 'virtlogd.service', but its triggering units are still active:
 virtlogd.socket, virtlogd-admin.socket*
 
-hmmm. no jatketaan. Tämä poistaa KVM kernel moduulit: sudo modprobe -r kvm_intel kvm
+hmmm. no jatketaan. Tämä poistaa KVM kernel moduulit: 
+sudo modprobe -r kvm_intel kvm
+
 Ei tule mitään ilmoitusta.
 kokeilen: lsmod | grep kvm
 Vastauksena ei tule mitään, eli kyseiset moduulit eivät enää pyöri. Kokeilen tässä vaiheessa toimiiko virtuaalikone jo nyt.
 Käynnistyi. Hienoa
+
+![virtual machine started](./virtualmachine-started.png)
+
+Ohjeet jatkavat siitä, että miten kvm estetään pysyvästä. Otan nämä talteen, sillä saattaahan olla,etä kvm latautuu aina koneen käynnistäessä uudestaan.
+Toisaalta voisin kai poistaa kvm: myös. Tässä kuitenkin ohjeet kvm:n käynnistyksen estämiseen:
+
+Blacklistaus:
+
+sudo nano /etc/modprobe.d/blacklist-kvm.comf
+
+blacklist kvm
+blacklist kvm_intel
+
+rebootin jälkeen tarkistus:
+
+lsmod | grep kvm
+
+17.07 Ehkä tämä olisi järkevintä kokeilla nyt. Reboottaan koneen.
+
+
+
+
 
 
 
