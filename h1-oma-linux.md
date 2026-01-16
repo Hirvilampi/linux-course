@@ -5,16 +5,17 @@
  ## Virtualboxin asentaminen
 
  15:30
- Seurasin ohjeita ja selvisi, että Debian 13 mukana ei tule oletuksena. 
+ Seurasin ohjeita ja selvisi, että Debian 13 mukana ei tule oletuksena Virtualboxia. 
  Yritin seurata Oraclen sivun ohjeita, mutta tämähän meni monimutkaiseksi..
  Käytännössä nyt näyttää siltä, että ilmeisesti virtualboxista ei ole olemassa Debian 13 tukevaa versiota.
  Vaihtoehdoiksi siis jää:
- 1. asentaa debian12 Bookworm
+ 1. asentaa debian12 Bookworm ja siihen VirtualBox
  2. asentaa m1 mac:lle virtualbox, mikä taitaa olla hankalaa sekin
- 3. asentaa KVM + virt-manager
+ 3. asentaa KVM + virt-manager ja tehdä tätä kautta virtuaalikone
 
 Kokeilen asentaa KVM + virt-managerin. Debian 12 asennus toiseksi olisi varmaan helpompaa, mutta ehkäpä
 tämä opettaa enemmän. Katsotaan miten käy. Kysyn ChatGTP:ltä ohjeet asennukseen. 
+### huom! Myöhemmin asennan Virtuaboxin Debianiin, koska sekin kyllä onnistuu
 
 ## KVM ja Virtual Machine Manager asennus
 
@@ -97,7 +98,7 @@ sit asennus ja annetut tiedot
 - se löytyykin storagesta ja näitä tekstejä voi klikata
 - luon tänne uuden 60 gigan levyn
 
-18:45 yritin käynnistää, mutta saan virheen: KÄYNNISTÄESSÄ VIRHE: 
+18:45 Virtualbox on asennettu yritin käynnistää virtuaalikonetta, mutta saan virheen: KÄYNNISTÄESSÄ VIRHE: 
 VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
 
 Kysyn ChatGTP:ltä syöttäen tuon virheen ja kysyen mikä virhe. Selviää, että koska asensin
@@ -112,6 +113,103 @@ tekstejä tähän leikkuupöydältä
 
 19:00 Debian käynnistyi asennusta varten.. tältä illalta tää on kyllä tässä
 
+klo 16:10 Perjantai 16.1.2026 - paluu virtuaalikoneen asennuksen äärelle
+
+(VERR_VMX_IN_VMX_ROOT_MODE) - on siis virhe, joka tulee käynnistäessä
+Google haku tuottaa paljon tuloksia
+ekat tulokset eivät näytä auttavan, mutta toisen vastauksen alla on 
+linkki "Please disable tghe KVM kernel extension" https://forums.virtualbox.org/viewtopic.php?t=50517
+tämän pitäisi näyttää KVM:n nimi: lsmod |grep kvm 
+Kokeilen: lsmod |grep kvm
+vastaus
+*kvm_intel             413696  0
+kvm                  1396736  1 kvm_intel
+irqbypass              12288  1 kvm*
+
+tämän pitäisi pysäyttää KVM moduuli: modprobe -r <kvm name>
+kokeilen: modprobe -r kvm_intel
+vastaus: 
+*modprobe: ERROR: could not remove 'kvm_intel': Operation not permitted*
+
+kokeilen: modprobe -f <kvm_intel>
+vastaus: 
+*bash: syntax error near unexpected token `newline'*
+
+kokeilen: modprobe -f kvm
+vastaus: tyhjää
+
+kokeilen: lsmod |grep kvm
+vastaus
+*kvm_intel             413696  0
+kvm                  1396736  1 kvm_intel
+irqbypass              12288  1 kvm*
+
+16:26 kokeilen käynnistää VirtualBoxin koneen
+
+kokeilen : modprobe -f irqbypass
+vastaus: *tyhjää*
+
+kokeilen: lsmod |grep kvm
+vastaus
+*kvm_intel             413696  0
+kvm                  1396736  1 kvm_intel
+irqbypass              12288  1 kvm*
+
+16:29 käynnistys virtuaalikoneessa ei onnistu tällä ohjeella. Palaan kokeilemaan google tuloksia
+
+16:31 löytyy sivu, jossa annetaan toinen käsky millä poistaa KVM. Sivusto: https://avz.org.ua/wp/2025/04/25/virtualbox-virtual-machine-not-started-with-verr_vmx_in_vmx_root_mode-error/
+
+*Solution:
+sudo rmmod kvm_intel kvm*
+
+En tiedä komennosta mitään, ei nettisaittikaan vaikuta "turvalliselta". Kysyn ChatGTP5.2 tämän: onko tämä turvallinen koodi ajaa debian trixie linuxissa: sudo rmmod kvm_intel kvm
+
+vastauksen pääosio 
+
+*"Yleisesti: se ei ole “vaarallinen” siinä mielessä, että se ei riko levyä tai poista tiedostoja, mutta se voi katkaista käynnissä olevat virtuaalikoneet ja poistaa Intel KVM -virtualisoinnin käytöstä siihen asti, kunnes moduulit ladataan takaisin (tai kone käynnistetään uudelleen).
+
+Mitä komento tekee:
+
+sudo rmmod kvm_intel kvm
+
+poistaa ytimestä ensin kvm_intel-moduulin (Intel KVM -kiihdytys), ja sitten kvm-ydinmoduulin.
+
+Tämä käytännössä sammuttaa KVM-virtualisoinnin järjestelmästä sillä hetkellä.
+
+Milloin se on “turvallista”:
+
+Jos et aja mitään KVM:ää käyttäviä VM:iä/kontteja/emulaattoreita (QEMU/KVM, libvirt, GNOME Boxes, virt-manager, minikube tms. KVM-taustalla), komento on yleensä ok.
+
+Jos et ole varma: komento voi epäonnistua “in use” -tyyppisesti, jos moduulit ovat käytössä.
+
+Riskit / haitat:
+
+Käynnissä olevat virtuaalikoneet kaatuvat tai pysähtyvät (pahimmillaan datakorruptio VM:n sisällä, jos levybufferit jäävät kesken).
+
+Virtualisointia käyttävät palvelut voivat mennä sekaisin ja vaatia restartin.
+
+Jos ajurit ovat käytössä, rmmod voi kieltäytyä poistamasta moduuleja (tämä on “hyvä” turvamekanismi)."*
+
+Lienee siis turvallista kokeilla tuota, koska KVM pyörii koko ajan taustalla. 
+Mutta ennen tuota kysyn myös ChatGTP5.2 mitä se tekisi kysymyksellä: 
+mikä virhe virtualbox:ssa: VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
+
+Tässä tuleekin pitempi ohje ja selkeämpi.. komento on eri: *sudo modprobe -r kvm_intel kvm*
+Nämä ohjeet ovat 6 selkään osaan ja alkaa noilla samoilla tarkistuksilla mikä on käynnissä.
+
+*timo@Usvamyrsky78:~$ sudo systemctl stop libvirtd
+sudo systemctl stop virtlogd
+[sudo] password for timo: 
+Stopping 'libvirtd.service', but its triggering units are still active:
+libvirtd.socket, libvirtd-ro.socket, libvirtd-admin.socket
+Stopping 'virtlogd.service', but its triggering units are still active:
+virtlogd.socket, virtlogd-admin.socket*
+
+hmmm. no jatketaan. Tämä poistaa KVM kernel moduulit: sudo modprobe -r kvm_intel kvm
+Ei tule mitään ilmoitusta.
+kokeilen: lsmod | grep kvm
+Vastauksena ei tule mitään, eli kyseiset moduulit eivät enää pyöri. Kokeilen tässä vaiheessa toimiiko virtuaalikone jo nyt.
+Käynnistyi. Hienoa
 
 
 
