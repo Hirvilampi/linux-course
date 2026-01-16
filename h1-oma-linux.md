@@ -265,6 +265,12 @@ reboot
 ![snapshot1](./h1images/snapshot1.png)
 
 
+Bonustehtävä: suosikkiohjelmani Linuxilla 
+terminaali on kyllä kova, kuten myös nettiselain sekä visual studio code. 
+Valitsen terminaalin ja ls -l komennon
+![ls komento terminaalissa](./h1images/h1_7_terminal_favorite.png)
+
+
 
 
 
