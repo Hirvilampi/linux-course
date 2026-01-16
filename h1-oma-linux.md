@@ -241,6 +241,30 @@ Toimii ja ulkopuoliset sivut latauvat we browserissa.
 
 17:30 sitten itse installoinnin kimppuun
 17:37 perustiedot laitettu ja nyt kone alkoi tekemään töitään
+17:43 asennus on valmistunut jossain välissä
+reboot
+17:44 pelkkä taustakuva näkyy edelleen
+17:44 nythän se vasta käynnistyi uudestaan
+17:45 First Login - salasana pelittää ja pääsin sisään
+17:46 käynnistetään web selain
+17:47 oma portfolio-sivu aukeaa
+17:48 sitten terminaali auki 
+17:49 sudo apt-get update - toimii ja hakee päivitykset (19 kappaletta)
+17:49 sudo apt-get -y install ufw - tehty
+17:50 sudo ufw enable - firewall is active and enabled.. 
+17:51 restart
+17:52 kaikkihan näyttää pelittävän
+17:56 virtualbox guest additions.. kai tämä on tarkoitus asentaa
+18:00 asennettu ohjeiden mukaan, ei virheitä, ei myöskään sudo bash VBoxLinuxAdditions.run käytettäessä
+18:02 uudelleen käynnistys ja snapshot
+
+
+
+
+
+
+
+
 
 
 
