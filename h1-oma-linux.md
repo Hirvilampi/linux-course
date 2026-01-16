@@ -174,7 +174,7 @@ En tiedä komennosta mitään, ei nettisaittikaan vaikuta "turvalliselta". Kysyn
 
 vastauksen pääosio 
 
-*"Yleisesti: se ei ole “vaarallinen” siinä mielessä, että se ei riko levyä tai poista tiedostoja, mutta se voi katkaista käynnissä olevat virtuaalikoneet ja poistaa Intel KVM -virtualisoinnin käytöstä siihen asti, kunnes moduulit ladataan takaisin (tai kone käynnistetään uudelleen).
+*Yleisesti: se ei ole “vaarallinen” siinä mielessä, että se ei riko levyä tai poista tiedostoja, mutta se voi katkaista käynnissä olevat virtuaalikoneet ja poistaa Intel KVM -virtualisoinnin käytöstä siihen asti, kunnes moduulit ladataan takaisin (tai kone käynnistetään uudelleen).
 
 Mitä komento tekee:
 
@@ -196,7 +196,7 @@ Käynnissä olevat virtuaalikoneet kaatuvat tai pysähtyvät (pahimmillaan datak
 
 Virtualisointia käyttävät palvelut voivat mennä sekaisin ja vaatia restartin.
 
-Jos ajurit ovat käytössä, rmmod voi kieltäytyä poistamasta moduuleja (tämä on “hyvä” turvamekanismi)."*
+Jos ajurit ovat käytössä, rmmod voi kieltäytyä poistamasta moduuleja (tämä on “hyvä” turvamekanismi).*
 
 Lienee siis turvallista kokeilla tuota, koska KVM pyörii koko ajan taustalla. 
 Mutta ennen tuota kysyn myös ChatGTP5.2 mitä se tekisi kysymyksellä: 
@@ -267,10 +267,25 @@ reboot
 ![snapshot1](./h1images/snapshot1.png)
 
 
-Bonustehtävä: suosikkiohjelmani Linuxilla 
+
+## Bonustehtävä: suosikkiohjelmani Linuxilla 
 terminaali on kyllä kova, kuten myös nettiselain sekä visual studio code. 
 Valitsen terminaalin ja ls -l komennon
 ![ls komento terminaalissa](./h1images/h1_7_terminal_favorite.png)
+
+
+## Pohdintaa tehtävästä
+Oma sekoilu tuotti enemmän töitä, kun ajattelin. Lopulta KVM ohjelman asentaminen ja sen ottaminen pois päältä tuottivat lisätöitä. Edelleenkin KVM aukeaa käynnistäessä, joten se ongelma ei vielä ratkennut. Saan sen kuitenkin yksinkertaisella käskyllä pois päältä. Isosti tässä tuli oppia, kun Linuxsiin joutui tutustumaan oikein kunnolla. 
+
+
+## Lähteet
+Virtualbox asentaminen: https://terokarvinen.com/2021/install-debian-on-virtualbox/
+Virtualbox asentaminen: 
+Virtualbox asentamisen ohjeet Linux Debianiin: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/
+Foorumilta VirtualBox käynnistymisen ongelmiin: https://forums.virtualbox.org/viewtopic.php?t=50517
+Foorumilta VirtualBox käynnistymisen ongelmiin: https://avz.org.ua/wp/2025/04/25/virtualbox-virtual-machine-not-started-with-verr_vmx_in_vmx_root_mode-error/
+ChatGTP5.2 kysymys: onko tämä turvallinen koodi ajaa debian trixie linuxissa: sudo rmmod kvm_intel kvm
+ChatGTP5.2 kysymys: mikä virhe virtualbox:ssa: VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
 
 
 
