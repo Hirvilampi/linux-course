@@ -1,6 +1,8 @@
 # TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN
 
  Käytössä pc-pohjainen linux Debian 13. Kernel versio 6.12.63+deb13-amd64
+ rautana prossa Intel Xeon E3-1230
+ 16Mb muistia, SSd:levy, Nvidia näytönohjain
 
  ## Virtualboxin asentaminen
 
