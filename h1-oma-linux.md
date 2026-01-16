@@ -106,24 +106,16 @@ sit asennus ja annetut tiedot
 ![virtual machine summary](./h1images/h1_2.png)
 
 Jotain on siis nyt saatu jo tehtyä
-![virtualBox manager](./h1images/h1_4_vbox_manager.png)
+![virtualBox manager](./h1images/h1_4_virtualbox_manager.png)
 
 18:45 Virtualbox on asennettu yritin käynnistää virtuaalikonetta, mutta saan virheen: KÄYNNISTÄESSÄ VIRHE: 
 VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
 
 ![powering up error](./h1images/h1_5_vbox_error.png)
 
-Kysyn ChatGTP:ltä syöttäen tuon virheen ja kysyen mikä virhe. Selviää, että koska asensin
-KVM managerin, niin yritän ajaa VirtualBoxia KVM-virtuaalikoneen sisällä.. Mutta siis, 
-en ole KVM sisällä ja ajamassa sieltä Virtualboxia. Tapansa mukaisesti chatgtp sekoilee taas.
+tuota erroria haeskelin netistä, mutta nyt en jaksa enää alkaa korjaamaan sitä
 
-Toki minua kiinnostaa, onko KVM onnistunut varaamaan nuo tiedot.. 
-lsmod | grep kvm
-.. jep niin on, kvm on varannut nuo.. pitänee poistaa ne ehkä kokonaan siltä
-
-tekstejä tähän leikkuupöydältä 
-
-19:00 Debian käynnistyi asennusta varten.. tältä illalta tää on kyllä tässä
+19:00 tältä illalta tää on kyllä tässä
 
 klo 16:10 Perjantai 16.1.2026 - paluu virtuaalikoneen asennuksen äärelle
 
