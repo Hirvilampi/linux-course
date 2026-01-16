@@ -16,6 +16,7 @@
 Kokeilen asentaa KVM + virt-managerin. Debian 12 asennus toiseksi olisi varmaan helpompaa, mutta ehkäpä
 tämä opettaa enemmän. Katsotaan miten käy. Kysyn ChatGTP:ltä ohjeet asennukseen. 
 ### huom! Myöhemmin asennan Virtuaboxin Debianiin, koska sekin kyllä onnistuu
+[Mene suoraan VirtualBoxin asennukseen](#Asennetaan-virtualbox)
 
 ## KVM ja Virtual Machine Manager asennus
 
@@ -86,7 +87,9 @@ En tänään torstaina kuluta enempää aikaa, jos joudunkin asentamaan vielä d
 
 18:13 googlen mukaan virtualbox toimii debian 13:ssa.. nyt on hämmentävää. Täytyy kokeilla
 
-## Virtualboxin asentaminen 
+
+
+## Asennetaan virtualbox 
 18:17 -> kokeilen uusia ohjeita: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/
 tähän pari kuvaa 
 
@@ -231,6 +234,13 @@ lsmod | grep kvm
 
 17.07 Ehkä tämä olisi järkevintä kokeilla nyt. Reboottaan koneen.
 
+17:23 kyllähän ne vielä näkyvät tuolla. -- jatkan virtualboxin asennusta ja palaan tähän myöhemmin
+
+TimoLampinenVM[Running] - Oracle VirtualBox
+Toimii ja ulkopuoliset sivut latauvat we browserissa.
+
+17:30 sitten itse installoinnin kimppuun
+17:37 perustiedot laitettu ja nyt kone alkoi tekemään töitään
 
 
 
