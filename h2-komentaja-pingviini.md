@@ -75,11 +75,18 @@ Tässä katsomme cat käskyllä tiedoston timezone sisällön.
 Sisältö viittaa vahvasti siihen, että tämän tiedoston sisältö: *Europe/Helsinki* kertoo järjestelmälle, mikä on koneen timezone.  
 
 
-## The Friendly M - esimerkkejä grep komennon käytöstä
+## The Friendly M - esimerkkejä grep komennon käytöstä  
 
-tässä jo aiemmin käytetty, kun fd ohjelmaa yritettiin etsia apt-cachesta. Oli hyvin todennäköistä, että kuvauksesta löytyisi myös find.
+tässä jo aiemmin käytetty, kun fd ohjelmaa yritettiin etsia apt-cachesta. Oli hyvin todennäköistä, että kuvauksesta löytyisi myös find.  
 
 ![apt-cachen search fd | grep "find"](./h2images/apt-cache-search-fd-etc.png)
+
+etsitään viikonpäivien alta kaikki tiedostot missä mainittu kissa ja toisella kertaa merkataan se eri väriseksi  
+
+![find |grep kissa --color](./h2images/grep-kissa-ja-kissa-color.png)  
+
+
+## Esimerkki putkista, pipe
 
 
 
