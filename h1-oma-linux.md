@@ -290,7 +290,7 @@ ChatGTP5.2 kysymys: onko tämä turvallinen koodi ajaa debian trixie linuxissa: 
 ChatGTP5.2 kysymys: mikä virhe virtualbox:ssa: VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
 
 
-
+20.1.2026 lisätty tekijä ekalle riville. Sekä muokattu otsikkoa.
 
 
 
