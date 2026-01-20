@@ -2,27 +2,30 @@ tehnyt Timo Lampinen, 2026, Linux palvelimet kurssi
 
 *Huomio tätä kannattaa silloin tällöin commitoida - varsinkin, jos tekee selaimessa, ettei kaikki häviä kun sulkee välilehden*
 
+  
 # Tehtävä: h2 Komentaja Pingviini
 
 https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini
+  
+  
+## x) Tiivistä - https://terokarvinen.com/2020/command-line-basics-revisited/
 
-
-## Tiivistä - https://terokarvinen.com/2020/command-line-basics-revisited/
+Tehtävä oli käydä läpi https://terokarvinen.com/2020/command-line-basics-revisited/ ja lisätä tähän liittyen jokin kysymys, idea tai huomio.
 
 - uusia asia oli, että montaa kansiota voi luoda yhdellä komennolla
 - mv komento oli myös uusi
 - grep tulee varmasti kovaan käyttöö
 - less on myös tärkeä
-
-
-## Asenna Micro
+  
+  
+## a) Asenna Micro
 
 Micron asennus kuvassa:
 
 ![asenna micro sudo apt-get install micro](./h2images/micro-asennus.png)
-
-
-## Asenna kolme itsellesi uutta komentoriviohjelmaa
+  
+  
+## b) Asenna kolme itsellesi uutta komentoriviohjelmaa
 
 Etsin erilaisia ohjelmia ja löysin nämä:  
 rolldice - nopanheitto ohjelma  
@@ -44,10 +47,10 @@ Sen nimi on ilmeisesti (tai ainakin asennuspaketin nimi on fd-find)
 
 asennetaan
 ![fd-find asennus](./h2images/install-fd-find.png)
-
-
-## FHS - esittele tärkeät kansiot 
-
+  
+  
+## c) FHS - esittele tärkeät kansiot 
+  
 ### /home/   
 
 /home/ kansiossa näkyvät kaikkien käyttäjien kansiot  
@@ -56,7 +59,7 @@ asennetaan
 
 Näemme, että tänne on määritelty vain yksi käyttäjä hirvilampi  
 
-
+  
 ###  /home/hirvilampi/
 
 Käyttäjän hirvilampi kansio on paikassa /home/hirvilampi  
@@ -64,7 +67,7 @@ Tämä on tärkeä, koska tämä on ainoa paikka, jonne hirvilampi voi tallentaa
 
 ![hakemisto home käyttäjät](./h2images/hirvilampi-dir.png)
 
-
+  
 ### /etc/ 
 
 Kaikki järjestelmän asetukset tiedostoina.
@@ -73,9 +76,9 @@ Tässä katsomme cat käskyllä tiedoston timezone sisällön.
 ![esimerkki etc kansion tiedoston sisällöstä](./h2images/etc-example.png)
 
 Sisältö viittaa vahvasti siihen, että tämän tiedoston sisältö: *Europe/Helsinki* kertoo järjestelmälle, mikä on koneen timezone.  
-
-
-## The Friendly M - esimerkkejä grep komennon käytöstä  
+  
+  
+## d) The Friendly M - esimerkkejä grep komennon käytöstä  
 
 etsitään tietoa kissa kissa.md tiedostosta komennolla:  
 grep "kissa" kissa.md  
@@ -91,7 +94,57 @@ etsitään viikonpäivien alta kaikki tiedostot missä mainittu kissa ja toisell
 ![find |grep kissa --color](./h2images/grep-kissa-ja-kissa-color.png)  
 
 
-## Esimerkki putkista, pipe
+  
+## e) Esimerkki putkista, pipe
+
+etsitään historiasta montako kertaa käytin nanoa komennolla:  
+history |grep nano
+
+![komento history |grep nano](./h2images/history-pipe.png)
+
+Mielenkiintoista huomata, että myös viimeisin jolla kutsuttiin komentoa, näkyy listassa.  
+
+
+
+## f) Listaa testaamasi koneen rauta
+
+ajetaan  
+sudo lshw -short -sanitize  
+vastaus  
+*sudo: lshw: command not found*
+
+täytyy siis asentaa lshw komennolla:
+sudo apt-get install lshw
+asennus onnistui
+
+![lshw installointi](./h2images/lshw-install.png)
+
+
+Sehän asentui nätisti ja nyt uudestaan lshw ajo. Tässä näkyy virtuaalikoneen raudan tiedot:  
+
+
+![sud lshw -short -sanitize](./h2images/lshw-ajo.png)
+
+
+Näemme 4GB muistia, joka asetettiin, sekä tuo reilu 60 GB hard disk tilaa. Myös prosessori näyttää oikeaa mallia.
+
+
+
+## g) Tulkitse muutama rivi lokeista (vapaaehtoinen)
+
+
+
+## h) Asenna jokin plugin micro-editorille ja kokeile sitä (vapaaehtoinen)
+
+
+
+
+## Lähteet
+
+Tehtäväsivu: https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini
+Command Line Basics Revisited: https://terokarvinen.com/2020/command-line-basics-revisited/
+
+
 
 
 
