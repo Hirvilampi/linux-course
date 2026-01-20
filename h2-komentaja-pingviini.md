@@ -62,15 +62,29 @@ Näemme, että tänne on määritelty vain yksi käyttäjä hirvilampi
 Käyttäjän hirvilampi kansio on paikassa /home/hirvilampi  
 Tämä on tärkeä, koska tämä on ainoa paikka, jonne hirvilampi voi tallentaa tiedostoja  
 
-![hakemisto home käyttäjät](./hsimages/hirvilampi-dir.png)
+![hakemisto home käyttäjät](./h2images/hirvilampi-dir.png)
 
 
 ### /etc/ 
 
 Kaikki järjestelmän asetukset tiedostoina.
+Tässä katsomme cat käskyllä tiedoston timezone sisällön. 
+
+![esimerkki etc kansion tiedoston sisällöstä](./h2images/etc-example.png)
+
+Sisältö viittaa vahvasti siihen, että tämän tiedoston sisältö: *Europe/Helsinki* kertoo järjestelmälle, mikä on koneen timezone.  
 
 
-![esimerkki etc kansion tiedoston sisällöstä](./hsimages/etx-example.png)
+## The Friendly M - esimerkkejä grep komennon käytöstä
+
+tässä jo aiemmin käytetty, kun fd ohjelmaa yritettiin etsia apt-cachesta. Oli hyvin todennäköistä, että kuvauksesta löytyisi myös find.
+
+![apt-cachen search fd | grep "find"](./h2images/apt-cache-search-fd-etc.png)
+
+
+
+
+
 
 
 
