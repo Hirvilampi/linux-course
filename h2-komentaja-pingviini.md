@@ -13,4 +13,17 @@ https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini
 - grep tulee varmasti kovaan käyttöö
 - less on myös tärkeä
 
-## 
+## Asenna Micro
+
+Micron asennus kuvassa:
+
+![asenna micro sudo apt-get install micro](./h2images/micro-asennus.png)
+
+
+## Asenna kolme itsellesi uutta komentoriviohjelmaa
+
+Etsin erilaisia ohjelmia ja löysin nämä
+rolldice - nopanheitto ohjelma
+fd - kätevämpi kuulema kuin find
+fzf - sumealla logiikalla toimiva etsintä ohjelma, jolloin kaiken ei tarvitse olla täysin oikein kirjoitettu
+
