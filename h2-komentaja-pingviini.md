@@ -6,12 +6,14 @@ tehnyt Timo Lampinen, 2026, Linux palvelimet kurssi
 
 https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini
 
+
 ## Tiivistä - https://terokarvinen.com/2020/command-line-basics-revisited/
 
 - uusia asia oli, että montaa kansiota voi luoda yhdellä komennolla
 - mv komento oli myös uusi
 - grep tulee varmasti kovaan käyttöö
 - less on myös tärkeä
+
 
 ## Asenna Micro
 
@@ -41,7 +43,34 @@ Tarkastetaan apt-cachesta grep käskyä hyödyntäen onko fd ohjelmaa olemassa
 Sen nimi on ilmeisesti (tai ainakin asennuspaketin nimi on fd-find)
 
 asennetaan
+![fd-find asennus](./h2images/install-fd-find.png)
 
+
+## FHS - esittele tärkeät kansiot 
+
+### /home/   
+
+/home/ kansiossa näkyvät kaikkien käyttäjien kansiot  
+
+![/home hakemisto käyttäjät](./hsimages/home-dir.png)
+
+Näemme, että tänne on määritelty vain yksi käyttäjä hirvilampi  
+
+
+###  /home/hirvilampi/
+
+Käyttäjän hirvilampi kansio on paikassa /home/hirvilampi  
+Tämä on tärkeä, koska tämä on ainoa paikka, jonne hirvilampi voi tallentaa tiedostoja  
+
+![/home hakemisto käyttäjät](./hsimages/hirvilampi-dir.png)
+
+
+### /etc/ 
+
+Kaikki järjestelmän asetukset tiedostoina.
+
+
+![esimerkki /etc/ kansion tiedoston sisällöstä](./hsimages/etx-example.png)
 
 
 
