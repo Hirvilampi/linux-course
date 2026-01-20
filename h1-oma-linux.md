@@ -1,4 +1,6 @@
-# TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN
+tehnyt Timo Lampinen, Linux Palvelimet kurssilla 2026
+
+# TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN LINUXILLE
 
  Käytössä pc-pohjainen linux Debian 13. Kernel versio 6.12.63+deb13-amd64
  rautana prossa Intel Xeon E3-1230
