@@ -52,7 +52,7 @@ asennetaan
 
 /home/ kansiossa näkyvät kaikkien käyttäjien kansiot  
 
-![/home hakemisto käyttäjät](./hsimages/home-dir.png)
+![kansion home hakemisto käyttäjät](./h2images/home-dir.png)
 
 Näemme, että tänne on määritelty vain yksi käyttäjä hirvilampi  
 
@@ -62,7 +62,7 @@ Näemme, että tänne on määritelty vain yksi käyttäjä hirvilampi
 Käyttäjän hirvilampi kansio on paikassa /home/hirvilampi  
 Tämä on tärkeä, koska tämä on ainoa paikka, jonne hirvilampi voi tallentaa tiedostoja  
 
-![/home hakemisto käyttäjät](./hsimages/hirvilampi-dir.png)
+![hakemisto home käyttäjät](./hsimages/hirvilampi-dir.png)
 
 
 ### /etc/ 
@@ -70,7 +70,7 @@ Tämä on tärkeä, koska tämä on ainoa paikka, jonne hirvilampi voi tallentaa
 Kaikki järjestelmän asetukset tiedostoina.
 
 
-![esimerkki /etc/ kansion tiedoston sisällöstä](./hsimages/etx-example.png)
+![esimerkki etc kansion tiedoston sisällöstä](./hsimages/etx-example.png)
 
 
 
