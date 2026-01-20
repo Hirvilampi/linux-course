@@ -22,8 +22,26 @@ Micron asennus kuvassa:
 
 ## Asenna kolme itsellesi uutta komentoriviohjelmaa
 
-Etsin erilaisia ohjelmia ja löysin nämä
-rolldice - nopanheitto ohjelma
-fd - kätevämpi kuulema kuin find
-fzf - sumealla logiikalla toimiva etsintä ohjelma, jolloin kaiken ei tarvitse olla täysin oikein kirjoitettu
+Etsin erilaisia ohjelmia ja löysin nämä:  
+rolldice - nopanheitto ohjelma  
+fd - kätevämpi kuulema kuin find  
+fzf - sumealla logiikalla toimiva etsintä ohjelma, jolloin kaiken ei tarvitse olla täysin oikein kirjoitettu  
+
+asennus:
+sudo apt-get -y install rolldice fd fzf
+
+![kuva kolmen ohjelman asennuksesta](./h2images/apt-get-install-3-programs.png)
+
+fd ei asentunut, koska sitä ei löydy.
+
+Tarkastetaan apt-cachesta grep käskyä hyödyntäen onko fd ohjelmaa olemassa
+
+![apt-cachen search fd | grep "find"](./h2images/apt-cache-search-fd-etc.png)
+
+Sen nimi on ilmeisesti (tai ainakin asennuspaketin nimi on fd-find)
+
+asennetaan
+
+
+
 
