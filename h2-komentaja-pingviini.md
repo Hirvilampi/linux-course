@@ -77,6 +77,11 @@ Sisältö viittaa vahvasti siihen, että tämän tiedoston sisältö: *Europe/He
 
 ## The Friendly M - esimerkkejä grep komennon käytöstä  
 
+etsitään tietoa kissa kissa.md tiedostosta komennolla:  
+grep "kissa" kissa.md  
+
+![find |grep kissa --color](./h2images/grep-kissa-kissa-md.png)  
+
 tässä jo aiemmin käytetty, kun fd ohjelmaa yritettiin etsia apt-cachesta. Oli hyvin todennäköistä, että kuvauksesta löytyisi myös find.  
 
 ![apt-cachen search fd | grep "find"](./h2images/apt-cache-search-fd-etc.png)
