@@ -123,26 +123,71 @@ asennus onnistui
 Sehän asentui nätisti ja nyt uudestaan lshw ajo. Tässä näkyy virtuaalikoneen raudan tiedot:  
 
 
-![sud lshw -short -sanitize](./h2images/lshw-ajo.png)
+![sudo lshw -short -sanitize tulostaa raudan tiedot](./h2images/lshw-ajo.png)
 
 
-Näemme 4GB muistia, joka asetettiin, sekä tuo reilu 60 GB hard disk tilaa. Myös prosessori näyttää oikeaa mallia.
+Näemme 4GB muistia, joka asetettiin, sekä tuo reilu 60 GB hard disk tilaa. Myös prosessori näyttää oikeaa mallia.  
+Siellä on myös romppuasemaa ja muuta, mutta erikoisinta on nämä pienet erot varsinaiseen järjestelmään:  
+- näytönohjainta ei näy, eli NVIDIA, joka oikean puolen Linuxilla näkyy
+- myös näkyvät hard diskit herättävät kysymyksen - mitä nämä molemmat ovat
+- imaginäärinen romppuasema näkyy myös
+- nämä herättivät ensin huomiota, monet muut nappulat ja systeemit ovat vietysti olemassa, kuten pitää
 
 
 
 ## g) Tulkitse muutama rivi lokeista (vapaaehtoinen)
 
+kokeillaan:  
+journalctl -f |nl
+
+![journalctl-f |nl tuloste](./h2images/journalctl.png)
+
+
+Tulkinta ja anlyysi:  
+
+rivi 4 - olen yrittänyt ajaa sudo komentoa "lshw -short -sanitize", mutta olen antanut väärän salasanan
+
+rivi 5 - olen asentanut sudo apt-get install komennolla lshw ohjelman
+
+journalctl -f antaa jonkinlaisen typistetymmän lokin, koska tässä ei kaikki komennot mitä virtualboxin aikana on tehty.   
+Kokeilin pelkkää journal |nl käskyä ja sain yli 600 riviä lokeja.  
 
 
 ## h) Asenna jokin plugin micro-editorille ja kokeile sitä (vapaaehtoinen)
 
+Voisin kokeilla vaikka tuota paletteroa, vaikka en tiedä mikä se on.  
+kokeilen:  
+sudo apt-get install palettero  
+E: Unable to locate package palettero  
 
+Haen googlesta hakusanalla: how to install palettero on linux 
+ja katson toista hakutulosta, koska ensimmäinen on Teron. https://micro-editor.github.io/plugins.html  
+Valitsen palettero 0.0.5 ja taitaakin olla niin, että tämä on Teron kirjoittama lisäys.  
+Paletteron saa asennettua komennolla  
+micro -plugin install palettero
 
+kokeilen  
+
+![micro -plugin install palettero ja install onnistuu](./h2images/micro-palettero.png)
+
+hienosti installoitui.
+Onko tässä mitään uutta. Olen aukaissut tämän kerran aiemmin, joten hankala huomata uusia ominaisuuksia.
+
+![micro auki palette asennettuna](./h2images/palettero.png)
+
+En suoraan huomaa mitään.. joten asennan micron omaan Debianiin. Omassa Microssa ei ole ylävalikkoa: File, Edit, View jne.  
+Aa.. mutta se on tämän terminaalin valikko, ei mitään tekemistä micron kanssa.
+Tuolla plugins sivulla: https://micro-editor.github.io/plugins.html  
+Sanotaan, että Command palette Ctrl-P - fuzzy search commands and textfilters   
+Kokeilen Ctrl-p - ruudussa vilahtaa nopeasti jotain, mistä ei ehdi saamaan selvää.  
+Palettero jää nyt minulle mysteeriksi.  
 
 ## Lähteet
 
-Tehtäväsivu: https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini
+Tehtäväsivu: https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini     
 Command Line Basics Revisited: https://terokarvinen.com/2020/command-line-basics-revisited/
+google search: "how to install palettero on linux"
+palettero pluginin asennusohjeet: https://micro-editor.github.io/plugins.html  
 
 
 
