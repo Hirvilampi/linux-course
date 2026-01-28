@@ -148,15 +148,16 @@ lisäksi host tiedostossa täytyy muokata vaikka näin:
 127.0.0.1 hattu.example.com  
 127.0.1.1 hirvilampi.example.com 
 
-Kokeilin näitä, mutta pari virhettä tuli tehtyä  
-hirvilampi.conf portti toimii vain samassa eli *:80
-lisäksi nimipalvelimen osoite ei tietysti toiminut tuolla, vaan pitää olla normaali  
-127.0.0.1 hirvilampi.example.com 
+Kokeilin näitä, mutta pari virhettä tuli tehtyä.  
+Ajattelin ensin, että hirvilampi.example.com ei auennut tuon 127.0.1.1 vuoksi, mutta tosiassa syynä oli seuraava:  
+hirvilampi.conf portti toimii vain samassa, kuin muut eli *:80  
+Tämän korjaus sai homman pelittämään.  Kokeilin vielä huvikseni, että toimiiko 127.0.1.1 tai 127.0.1.2 tai lopullinen 127.0.0.1 ja selvisi, että kun nämä oli määritelty: hirvilampi.example.com avautui aina.  
 
 Näillä asetuksilla ja tietysti sudo a2ensite hirvilampi.conf - ja sitten sudo systemctl restart apache2  
 
 ![sisällöt hattu.conf hirvilampi.conf tiedosto ja /etc/host](h3images/hattuhirvilampi.png)  
 
+Vielä kuva kaikista simuloista nimipalveluista auki samaan aikaan:  
 
 ![hirvilampi.example.com ja hattu.example.com näkyvät](h3images/nameservices.png)  
 
