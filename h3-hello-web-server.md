@@ -86,7 +86,8 @@ Tässä lopputulos:
 ## e) Tee validi html5 sivu
 
 En Löytänyt jotain selkeää ohjetta. Jotain kysyin geminiltä: "millainen on validi html5 sivu?" 
-Alla vastauksen alkuosa ja päätin kokeilla mukana tullutta koodiehdotusta
+Alla vastauksen alkuosa ja päätin kokeilla mukana tullutta koodiehdotusta  
+
 ![gemini kertoo html5 rakenteen](h3images/geminihtml.png)  
   
 index.html html5 sivuna
@@ -100,10 +101,38 @@ Ei tämä varmaankaan täysin väärin ole.
 
 ## f) Anna esimerkit curl -l ja curl kommennoista ja selitä response headereista, mitä ne tarkoittavat
 
-curl -l  
+curl - kokeiltiin localhostiin sekä omaan portfolioon sivulla www.timolampinen.com
+
+![curl example](h3images/curl_molemmat.png)  
+
+curl lähettää koko sivun sisällön. www.timolampinen.com tapauksessa näemme vain *Redirecting..*  
+Tämä johtuu todennäköisesti siitä, että se ohjataan palvelimelta toiselle, sillä varsinaiset sivuni pyörivät vercelin alla.  
 
 
-curl  
+curl -I kokeiltiin localhostiin sekä sivulla www.timolampinen.com
+
+![curl example](h3images/curl_I_molemmat.png)  
+
+https://www.timolampinen.com  
+HTTP/2 307 Tarkoittaa väliaikaista uudelleenohjausta    
+cache-control: ohjeistaa miten sivua saa tallentaa välimuistiin. Tässä tapauksessa selain ei saa käyttää vanhaa tallennetta tarkistamatta onko uusi saatavilla  
+content-type: määrittelee minkätyyppistä sisältö on. Tässä pelkkää tekstiä  
+date: haun ajankohta  
+location: haun url  
+server:  käytetty serveri, tässä tapauksessa pilvialusta Vercel  
+strict-transport-security: kertoo, että kahden vuoden (max-age) sisällä tulee olla vain https yhdeyden kautta  
+
+
+http://localhost  
+HTTP/1.1 200 OK  Tämä on onnistunut pyyntö ja sen vakioilmoitus  
+date: haun hetki  
+server:  serveri jolla pyörii, eli tässä Apache  
+Last-Modified: aika, jolloin tiedostoa on viimeksi muokattu  
+ETag: yksilöllinen tunniste (hash) tiedoston versiolle  
+Content-Length: vastauksen koko tavuina  
+Content-Type: mitä tyyppiä, tässä tekstiä ja html:ää  
+
+
 
 
 ## m) Hanki GitHub Education paketti
