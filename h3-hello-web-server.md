@@ -75,14 +75,27 @@ Tein etusivun hattu.conf tiedoston ja muut .conf tiedostot asetin pois päältä
 ![hattu.conf ja muut conf tiedostot pois päältä](h3images/hattuconf.png)  
 
 
+index.html tiedosto  
+![index.html](h3images/hattuindex.png)  
 
+  
 Tässä lopputulos: 
 ![hattu.example.com](h3images/hattu.png)  
 
+  
+## d) Tee validi html5 sivu
 
+index.html html5 sivuna
+![html5 version of index.html](h3images/htmlindex.png)  
 
+validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input
+![index.html](h3images/hattuindex.png) 
+
+  
 ## Lähteet
 Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/  
 Apache Module mod_log_config: https://httpd.apache.org/docs/current/mod/mod_log_config.html 
 Reddit: https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
+validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input
+
 
