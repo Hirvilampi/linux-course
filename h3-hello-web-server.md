@@ -83,19 +83,39 @@ Tässä lopputulos:
 ![hattu.example.com](h3images/hattu.png)  
 
   
-## d) Tee validi html5 sivu
+## e) Tee validi html5 sivu
 
+En Löytänyt jotain selkeää ohjetta. Jotain kysyin geminiltä: "millainen on validi html5 sivu?" 
+Alla vastauksen alkuosa ja päätin kokeilla mukana tullutta koodiehdotusta
+![gemini kertoo html5 rakenteen](h3images/geminihtml.png)  
+  
 index.html html5 sivuna
 ![html5 version of index.html](h3images/htmlindex.png)  
 
-validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input
-![index.html](h3images/hattuindex.png) 
+Koska tekoäly ei ole aina luotettava, päätin käyttää syntyneen koodin validaatiopalvelun kautta.  
+Käyttämäni palvelu oli:  https://validator.w3.org/#validate_by_input
+![validator.w3.org palveluun syötetty index.html lähdekoodi ja suoritettu hyväksytystil](h3images/htmlvalidation.png) 
 
+Ei tämä varmaankaan täysin väärin ole.  
+
+## f) Anna esimerkit curl -l ja curl kommennoista ja selitä response headereista, mitä ne tarkoittavat
+
+curl -l  
+
+
+curl  
+
+
+## m) Hanki GitHub Education paketti
+- Hankittu vuosi takaperin
+
+## 
   
 ## Lähteet
 Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/  
 Apache Module mod_log_config: https://httpd.apache.org/docs/current/mod/mod_log_config.html 
 Reddit: https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
 validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input
+AI Gemini3, kysymys 28.1.2026: "millainen on validi html5 sivu?"
 
 
