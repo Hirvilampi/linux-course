@@ -138,13 +138,37 @@ Content-Type: mitä tyyppiä, tässä tekstiä ja html:ää
 ## m) Hanki GitHub Education paketti
 - Hankittu vuosi takaperin
 
-## 
+## o) Laita tietokone vastaamaan kahdella sivulla kahdesta eri nimestä
+
+esim hirvilampi/index.html  ja nykyinen hattu/index.html  
+oletan, että minunt täytyy ottaa käyttöön hirvilampi.conf uudestaan  
+oletan, että conf tiedostoon täytyy määrittää eri portti, vaikka *:81  
+
+lisäksi host tiedostossa täytyy muokata vaikka näin:  
+127.0.0.1 hattu.example.com  
+127.0.1.1 hirvilampi.example.com 
+
+Kokeilin näitä, mutta pari virhettä tuli tehtyä  
+hirvilampi.conf portti toimii vain samassa eli *:80
+lisäksi nimipalvelimen osoite ei tietysti toiminut tuolla, vaan pitää olla normaali  
+127.0.0.1 hirvilampi.example.com 
+
+Näillä asetuksilla ja tietysti sudo a2ensite hirvilampi.conf - ja sitten sudo systemctl restart apache2  
+
+![sisällöt hattu.conf hirvilampi.conf tiedosto ja /etc/host](h3images/hattuhirvilampi.png)  
+
+
+![hirvilampi.example.com ja hattu.example.com näkyvät](h3images/nameservices.png)  
+
+
+
+
   
 ## Lähteet
 Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/  
 Apache Module mod_log_config: https://httpd.apache.org/docs/current/mod/mod_log_config.html 
 Reddit: https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
-validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input
+validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input  
 AI Gemini3, kysymys 28.1.2026: "millainen on validi html5 sivu?"
 
 
