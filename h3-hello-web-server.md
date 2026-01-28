@@ -33,6 +33,9 @@ sudo tail -3 /var/log/apache2/other_vhosts_access.log
 ![sudo](h3images/lokit.png)  
 
 Ladattessa näkyy kolme lokitapahtumaa,joista ajan perusteella kaksi viimeistä liittyvät viimeisimpään lataukseen.
+Lähteenä:  
+https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/
+https://httpd.apache.org/docs/current/mod/mod_log_config.html  
 
 ensimmäinen lokitapahtuma ajankohdalla 17:46:11
 hirvilampi.example.com:80  - virtuaalipalvelin ja portti
@@ -43,8 +46,43 @@ hirvilampi.example.com:80  - virtuaalipalvelin ja portti
 "GET / HTTP/1.1" - pyyntö, haetaan etusivua  
 200 305 - vastaus on onnistunut ja siinä on ollut 305 merkkiä
 -    verkkosivu, jotka käyttäjä tuli tälle sivulle 
-Viimneinen osio kertoo tietoja haetusta järjesestelmästä
+Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun
 
-toinen lokitapahtuma ajankohdalla 17:46:11
+toinen lokitapahtuma ajankohdalla 17:46:11  
+hirvilampi.example.com:80  - virtuaalipalvelin ja portti  
+127.0.0.1 - pyyntö menee tähän ip-osoitteeseen, eli paikallisesti     
+ -   remote logname, viiva koska ei annettu  
+ -   remote user, if the request was authenticated, tämä myös pelkkä viiva   
+[28/Jan/2026:17:46:11 +0200] - Ajankohta jolloin haettua, ja lopussa paljonko aika on eri GMT verrattuna  
+"GET /favicon.ico HTTP/1.1" - haetaan ikoni tiedostoa, mikä tulisi välilehtipalkkiin - mutta miksi?  
+404 527 - tiedostoa ei löydy, virheilmoituksen koko on 527 tavua
+"http://localhost/"  - kertoo sivun, mistä tänne tultiin  
+Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun
 
+Jäin miettimään miksi /favicon.ico tiedostoa haetaan. Löysin kuitenkin ratkaisun tältä sivulta:  
+https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/
+"Favicon is the little emblem at the top of your browser, like the badge that some sites have. Without one in your project folder your browser can't find one and throws an error. You can always make one there's plenty of favicon generators for free online. "  
+Ongelma tämän mukaan on siinä, että selain hakee sitä ja koska tiedostoa ei löydy, saan kyseisen virheilmoituksen.   
+Tässä hiukan Favicon historiaa Wikipediasta: https://en.wikipedia.org/wiki/Favicon  
+
+
+## c) Etusivu uusiksi 
+
+Seurasin sivun https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/  
+ohjeita. Tämän lisäki oppitunnin 27.1.2026 muistilistaa.
+
+Tein etusivun hattu.conf tiedoston ja muut .conf tiedostot asetin pois päältä.  
+![hattu.conf ja muut conf tiedostot pois päältä](h3images/hattuconf.png)  
+
+
+
+Tässä lopputulos: 
+![hattu.example.com](h3images/hattu.png)  
+
+
+
+## Lähteet
+Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/  
+Apache Module mod_log_config: https://httpd.apache.org/docs/current/mod/mod_log_config.html 
+Reddit: https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
 
