@@ -24,6 +24,27 @@ Tehtävä
 
 xx a) testaa, että web palvelimesi vastaa localhost osoitteesta
 
-![localhost in web browser](./h23mages/lochalhosworks.png)  
+![localhost in web browser](h3images/localhosworks.png)  
 
 ## b) lokin rivit, kun avaat yhden sivun ja selitykset  
+
+sudo tail -3 /var/log/apache2/other_vhosts_access.log  
+
+![sudo](h3images/lokit.png)  
+
+Ladattessa näkyy kolme lokitapahtumaa,joista ajan perusteella kaksi viimeistä liittyvät viimeisimpään lataukseen.
+
+ensimmäinen lokitapahtuma ajankohdalla 17:46:11
+hirvilampi.example.com:80  - virtuaalipalvelin ja portti
+127.0.0.1 - pyyntö menee tähän ip-osoitteeseen, eli paikallisesti   
+ -   remote logname, viiva koska ei annettu
+ -   remote user, if the request was authenticated, tämä myös pelkkä viiva   
+[28/Jan/2026:17:46:11 +0200] - Ajankohta jolloin haettua, ja lopussa paljonko aika on eri GMT verrattuna  
+"GET / HTTP/1.1" - pyyntö, haetaan etusivua  
+200 305 - vastaus on onnistunut ja siinä on ollut 305 merkkiä
+-    verkkosivu, jotka käyttäjä tuli tälle sivulle 
+Viimneinen osio kertoo tietoja haetusta järjesestelmästä
+
+toinen lokitapahtuma ajankohdalla 17:46:11
+
+
