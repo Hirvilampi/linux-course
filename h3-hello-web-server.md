@@ -28,6 +28,8 @@ xx a) testaa, että web palvelimesi vastaa localhost osoitteesta
 
 ## b) lokin rivit, kun avaat yhden sivun ja selitykset  
 
+access.log oli tyhjä, mutta tiedot löytyivät other_vhosts_access.log 
+
 sudo tail -3 /var/log/apache2/other_vhosts_access.log  
 
 ![sudo](h3images/lokit.png)  
@@ -85,19 +87,17 @@ Tässä lopputulos:
   
 ## e) Tee validi html5 sivu
 
-En Löytänyt jotain selkeää ohjetta. Jotain kysyin geminiltä: "millainen on validi html5 sivu?" 
-Alla vastauksen alkuosa ja päätin kokeilla mukana tullutta koodiehdotusta  
-
-![gemini kertoo html5 rakenteen](h3images/geminihtml.png)  
+Seurasin Teron antamia ohjeita lyhyestä HTML5 sivusta:  
+Karvinen 2012: https://terokarvinen.com/2012/short-html5-page/  
   
 index.html html5 sivuna
 ![html5 version of index.html](h3images/htmlindex.png)  
 
-Koska tekoäly ei ole aina luotettava, päätin käyttää syntyneen koodin validaatiopalvelun kautta.  
+Koodi on kuitenkin hyvä tarkastaa validaattorilla
 Käyttämäni palvelu oli:  https://validator.w3.org/#validate_by_input
 ![validator.w3.org palveluun syötetty index.html lähdekoodi ja suoritettu hyväksytystil](h3images/htmlvalidation.png) 
 
-Ei tämä varmaankaan täysin väärin ole.  
+Ei virheitä, joten totean lopputuloksen olevan validi HTML5 sivu.   
 
 ## f) Anna esimerkit curl -l ja curl kommennoista ja selitä response headereista, mitä ne tarkoittavat
 
@@ -169,7 +169,7 @@ Vielä kuva kaikista simuloista nimipalveluista auki samaan aikaan:
 Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/  
 Apache Module mod_log_config: https://httpd.apache.org/docs/current/mod/mod_log_config.html 
 Reddit: https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
+Karvinen 2012: https://terokarvinen.com/2012/short-html5-page/  
 validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input  
-AI Gemini3, kysymys 28.1.2026: "millainen on validi html5 sivu?"
 
 
