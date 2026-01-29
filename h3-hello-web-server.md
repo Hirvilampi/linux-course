@@ -1,5 +1,6 @@
 Kirjoittanut Timo Lampinen 2026
 Linux-palvelimet kurssi  - ICI003AS2A-3016
+Tehtävä h3 sivulta: https://terokarvinen.com/linux-palvelimet/
 
 Tehtävä
 # h3 Hello Web Server
@@ -39,30 +40,32 @@ Lähteenä:
 https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/
 https://httpd.apache.org/docs/current/mod/mod_log_config.html  
 
-ensimmäinen lokitapahtuma ajankohdalla 17:46:11
-hirvilampi.example.com:80  - virtuaalipalvelin ja portti
-127.0.0.1 - pyyntö menee tähän ip-osoitteeseen, eli paikallisesti   
- -   remote logname, viiva koska ei annettu
- -   remote user, if the request was authenticated, tämä myös pelkkä viiva   
-[28/Jan/2026:17:46:11 +0200] - Ajankohta jolloin haettua, ja lopussa paljonko aika on eri GMT verrattuna  
-"GET / HTTP/1.1" - pyyntö, haetaan etusivua  
-200 305 - vastaus on onnistunut ja siinä on ollut 305 merkkiä
--    verkkosivu, jotka käyttäjä tuli tälle sivulle 
-Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun
+ensimmäinen lokitapahtuma ajankohdalla 17:46:11  
+
+ -   hirvilampi.example.com:80  - virtuaalipalvelin ja portti mitä tämä lokimerkintä koskee  
+ -   127.0.0.1 - pyyntö menee tähän ip-osoitteeseen, eli paikallisesti   
+ -   viiva - remote logname, viiva koska ei annettu
+ -   viiva -  remote user, if the request was authenticated, tämä myös pelkkä viiva   
+ -   [28/Jan/2026:17:46:11 +0200] - Ajankohta jolloin haettua, ja lopussa paljonko aika on eri GMT verrattuna  
+ -   "GET / HTTP/1.1" - pyyntö, haetaan etusivua  
+ -   200 305 - vastaus on onnistunut ja siinä on ollut 305 tavua  
+ -   "-" - verkkosivu, jotka käyttäjä tuli tälle sivulle  
+ -   Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun  
 
 toinen lokitapahtuma ajankohdalla 17:46:11  
-hirvilampi.example.com:80  - virtuaalipalvelin ja portti  
-127.0.0.1 - pyyntö menee tähän ip-osoitteeseen, eli paikallisesti     
- -   remote logname, viiva koska ei annettu  
- -   remote user, if the request was authenticated, tämä myös pelkkä viiva   
-[28/Jan/2026:17:46:11 +0200] - Ajankohta jolloin haettua, ja lopussa paljonko aika on eri GMT verrattuna  
-"GET /favicon.ico HTTP/1.1" - haetaan ikoni tiedostoa, mikä tulisi välilehtipalkkiin - mutta miksi?  
-404 527 - tiedostoa ei löydy, virheilmoituksen koko on 527 tavua
-"http://localhost/"  - kertoo sivun, mistä tänne tultiin  
-Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun
+
+ -   hirvilampi.example.com:80  - virtuaalipalvelin ja portti mitä tämä lokimerkintä koskee  
+ -   127.0.0.1 - pyyntö menee tähän ip-osoitteeseen, eli paikallisesti     
+ -   viiva - remote logname, viiva koska ei annettu  
+ -   viiva - remote user, if the request was authenticated, tämä myös pelkkä viiva   
+ -   [28/Jan/2026:17:46:11 +0200] - Ajankohta jolloin haettua, ja lopussa paljonko aika on eri GMT verrattuna   
+ -   "GET /favicon.ico HTTP/1.1" - haetaan ikoni tiedostoa, mikä tulisi välilehtipalkkiin - mutta miksi?  
+ -   404 527 - tiedostoa ei löydy, virheilmoituksen koko on 527 tavua  
+ -   "http://localhost/"  - kertoo sivun, mistä tänne tultiin  
+ -   Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun  
 
 Jäin miettimään miksi /favicon.ico tiedostoa haetaan. Löysin kuitenkin ratkaisun tältä sivulta:  
-https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/
+https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
 "Favicon is the little emblem at the top of your browser, like the badge that some sites have. Without one in your project folder your browser can't find one and throws an error. You can always make one there's plenty of favicon generators for free online. "  
 Ongelma tämän mukaan on siinä, että selain hakee sitä ja koska tiedostoa ei löydy, saan kyseisen virheilmoituksen.   
 Tässä hiukan Favicon historiaa Wikipediasta: https://en.wikipedia.org/wiki/Favicon  
@@ -97,7 +100,7 @@ Koodi on kuitenkin hyvä tarkastaa validaattorilla
 Käyttämäni palvelu oli:  https://validator.w3.org/#validate_by_input
 ![validator.w3.org palveluun syötetty index.html lähdekoodi ja suoritettu hyväksytystil](h3images/htmlvalidation.png) 
 
-Ei virheitä, joten totean lopputuloksen olevan validi HTML5 sivu.   
+Sivu läpäisi validaattorin testin puhtaasti.     
 
 ## f) Anna esimerkit curl -l ja curl kommennoista ja selitä response headereista, mitä ne tarkoittavat
 
@@ -164,12 +167,15 @@ Vielä kuva kaikista simuloista nimipalveluista auki samaan aikaan:
 
 
 
-  
 ## Lähteet
-Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/  
-Apache Module mod_log_config: https://httpd.apache.org/docs/current/mod/mod_log_config.html 
-Reddit: https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
-Karvinen 2012: https://terokarvinen.com/2012/short-html5-page/  
-validaatio palvelun w3 validator kautta: https://validator.w3.org/#validate_by_input  
+- Karvinen 2024: Linux-palvelimet kurssi: https://terokarvinen.com/linux-palvelimet/
+- Apache Software Foundation: Name-based Virtual Host Support: https://httpd.apache.org/docs/2.4/vhosts/name-based.html
+- Karvinen 2018: Name Based Virtual Hosts on Apache: https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/
+- Cloudlytics: Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/
+- Apache Software Foundation: mod_log_config: https://httpd.apache.org/docs/current/mod/mod_log_config.html
+- Reddit: Why browsers request favicon.ico: https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/
+- Wikipedia: Favicon history: https://en.wikipedia.org/wiki/Favicon
+- Karvinen 2012: Short HTML5 page: https://terokarvinen.com/2012/short-html5-page/
+- W3C Validator: https://validator.w3.org/#validate_by_input
 
 
