@@ -1,7 +1,7 @@
 Kirjoittanut Timo Lampinen 2026
 Linux-palvelimet kurssi  - ICI003AS2A-3016
 Tehtävä h3 sivulta: https://terokarvinen.com/linux-palvelimet/
-
+  
 Tehtävä
 # h3 Hello Web Server
   
@@ -50,7 +50,7 @@ ensimmäinen lokitapahtuma ajankohdalla 17:46:11
  -   "GET / HTTP/1.1" - pyyntö, haetaan etusivua  
  -   200 305 - vastaus on onnistunut ja siinä on ollut 305 tavua  
  -   "-" - verkkosivu, jotka käyttäjä tuli tälle sivulle  
- -   Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun  
+ -   Viimeinen osio kertoo tietoja järjestelmästä, joka suorittaa haun  
 
 toinen lokitapahtuma ajankohdalla 17:46:11  
 
@@ -62,7 +62,7 @@ toinen lokitapahtuma ajankohdalla 17:46:11
  -   "GET /favicon.ico HTTP/1.1" - haetaan ikoni tiedostoa, mikä tulisi välilehtipalkkiin - mutta miksi?  
  -   404 527 - tiedostoa ei löydy, virheilmoituksen koko on 527 tavua  
  -   "http://localhost/"  - kertoo sivun, mistä tänne tultiin  
- -   Viimeinen osio kertoo tietoja järjesestelmästä, joka suorittaa haun  
+ -   Viimeinen osio kertoo tietoja järjestelmästä, joka suorittaa haun  
 
 Jäin miettimään miksi /favicon.ico tiedostoa haetaan. Löysin kuitenkin ratkaisun tältä sivulta:  
 https://www.reddit.com/r/webdev/comments/o0irdx/can_someone_help_me_understand_why_when_i_run/  
@@ -98,7 +98,7 @@ index.html html5 sivuna
 
 Koodi on kuitenkin hyvä tarkastaa validaattorilla
 Käyttämäni palvelu oli:  https://validator.w3.org/#validate_by_input
-![validator.w3.org palveluun syötetty index.html lähdekoodi ja suoritettu hyväksytystil](h3images/htmlvalidation.png) 
+![validator.w3.org palveluun syötetty index.html lähdekoodi ja suoritettu hyväksytysti](h3images/htmlvalidation.png) 
 
 Sivu läpäisi validaattorin testin puhtaasti.     
 
@@ -123,7 +123,7 @@ content-type: määrittelee minkätyyppistä sisältö on. Tässä pelkkää tek
 date: haun ajankohta  
 location: haun url  
 server:  käytetty serveri, tässä tapauksessa pilvialusta Vercel  
-strict-transport-security: kertoo, että kahden vuoden (max-age) sisällä tulee olla vain https yhdeyden kautta  
+strict-transport-security: kertoo, että kahden vuoden (max-age) sisällä tulee olla vain https yhteyden kautta  
 
 
 http://localhost  
@@ -152,9 +152,9 @@ lisäksi host tiedostossa täytyy muokata vaikka näin:
 127.0.1.1 hirvilampi.example.com 
 
 Kokeilin näitä, mutta pari virhettä tuli tehtyä.  
-Ajattelin ensin, että hirvilampi.example.com ei auennut tuon 127.0.1.1 vuoksi, mutta tosiassa syynä oli seuraava:  
+Ajattelin ensin, että hirvilampi.example.com ei auennut tuon 127.0.1.1 vuoksi, mutta tosiasiassa syynä oli seuraava:  
 hirvilampi.conf portti toimii vain samassa, kuin muut eli *:80  
-Tämän korjaus sai homman pelittämään.  Kokeilin vielä huvikseni, että toimiiko 127.0.1.1 tai 127.0.1.2 tai lopullinen 127.0.0.1 ja selvisi, että kun nämä oli määritelty: hirvilampi.example.com avautui aina.  
+Tämän korjaus toimi.  Kokeilin vielä huvikseni, että toimiiko 127.0.1.1 tai 127.0.1.2 tai lopullinen 127.0.0.1 ja selvisi, että kun nämä oli määritelty: hirvilampi.example.com avautui aina.  
 
 Näillä asetuksilla ja tietysti sudo a2ensite hirvilampi.conf - ja sitten sudo systemctl restart apache2  
 
