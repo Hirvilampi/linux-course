@@ -1,6 +1,6 @@
-Kirjoittanut Timo Lampinen 2026
-Linux-palvelimet kurssi  - ICI003AS2A-3016
-Tehtävä h3 sivulta: https://terokarvinen.com/linux-palvelimet/
+Kirjoittanut Timo Lampinen 2026  
+Linux-palvelimet kurssi  - ICI003AS2A-3016  
+Tehtävä h3 sivulta: https://terokarvinen.com/linux-palvelimet/  
   
 Tehtävä
 # h3 Hello Web Server
