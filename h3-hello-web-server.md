@@ -13,12 +13,12 @@ Tehtävä
 - mahdollistaa usean nimipalvelun toimimisen samassa ip-osoitteesta
 - ensisijaisesti nimeen perustuvaa virtuaaliserveriä etsitään ip-numeron ja portin perusteella
 - useamman virtuaalihostin löytyessä tehdään valinta ServerName ja ServerAlias perusteella
-- jokaisessa Virtual Host lohkossa tulisi olla vähintään ServerName ja DocumentRoot
+- jokaisessa Virtual Host-lohkossa tulisi olla vähintään ServerName ja DocumentRoot
 - ServerAlias on välttämätön jos haluaa saada saman sivuston näkymään useammalla nimellä  
 
 ### https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/ 
 
-- Sivusto antaa ohjeet, kuinka montaa eri nimistä virtuaali hostia voi ajaa samasta IP-osoitteesta
+- Sivusto antaa ohjeet, kuinka montaa eri nimistä virtuaalihostia voi ajaa samasta IP-osoitteesta
 - ohjeissa käytetään komentorivikehotetta 
 - opetetaan asentamaan apache2 ja tekemään kaikki perusasiat siihen pisteeseen, että tehty nettisivu näyttää halutun tekstin
 - ohjeissa käydään vielä läpi, kuinka paikallisesti voidaan simuloida nimipalvelun sivua  
@@ -35,7 +35,7 @@ sudo tail -3 /var/log/apache2/other_vhosts_access.log
 
 ![sudo](h3images/lokit.png)  
 
-Ladattessa näkyy kolme lokitapahtumaa,joista ajan perusteella kaksi viimeistä liittyvät viimeisimpään lataukseen.
+Ladattessa näkyy kolme lokitapahtumaa, joista ajan perusteella kaksi viimeistä liittyvät viimeisimpään lataukseen.
 Lähteenä:  
 https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/
 https://httpd.apache.org/docs/current/mod/mod_log_config.html  
@@ -74,7 +74,7 @@ Tässä hiukan Favicon historiaa Wikipediasta: https://en.wikipedia.org/wiki/Fav
 ## c) Etusivu uusiksi 
 
 Seurasin sivun https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/  
-ohjeita. Tämän lisäki oppitunnin 27.1.2026 muistilistaa.
+ohjeita. Tämän lisäksi oppitunnin 27.1.2026 muistilistaa.
 
 Tein etusivun hattu.conf tiedoston ja muut .conf tiedostot asetin pois päältä.  
 ![hattu.conf ja muut conf tiedostot pois päältä](h3images/hattuconf.png)  
@@ -109,7 +109,7 @@ curl - kokeiltiin localhostiin sekä omaan portfolioon sivulla www.timolampinen.
 ![curl example](h3images/curl_molemmat.png)  
 
 curl lähettää koko sivun sisällön. www.timolampinen.com tapauksessa näemme vain *Redirecting..*  
-Tämä johtuu todennäköisesti siitä, että se ohjataan palvelimelta toiselle, sillä varsinaiset sivuni pyörivät vercelin alla.  
+Tämä johtuu todennäköisesti siitä, että kysely ohjataan palvelimelta toiselle, sillä varsinaiset sivuni pyörivät vercelin alla.  
 
 
 curl -I kokeiltiin localhostiin sekä sivulla www.timolampinen.com
@@ -144,7 +144,7 @@ Content-Type: mitä tyyppiä, tässä tekstiä ja html:ää
 ## o) Laita tietokone vastaamaan kahdella sivulla kahdesta eri nimestä
 
 esim hirvilampi/index.html  ja nykyinen hattu/index.html  
-oletan, että minunt täytyy ottaa käyttöön hirvilampi.conf uudestaan  
+oletan, että minun täytyy ottaa käyttöön hirvilampi.conf uudestaan  
 oletan, että conf tiedostoon täytyy määrittää eri portti, vaikka *:81  
 
 lisäksi host tiedostossa täytyy muokata vaikka näin:  
@@ -160,7 +160,7 @@ Näillä asetuksilla ja tietysti sudo a2ensite hirvilampi.conf - ja sitten sudo 
 
 ![sisällöt hattu.conf hirvilampi.conf tiedosto ja /etc/host](h3images/hattuhirvilampi.png)  
 
-Vielä kuva kaikista simuloista nimipalveluista auki samaan aikaan:  
+Vielä kuva kaikista simuloiduista nimipalveluista auki samaan aikaan:  
 
 ![hirvilampi.example.com ja hattu.example.com näkyvät](h3images/nameservices.png)  
 
