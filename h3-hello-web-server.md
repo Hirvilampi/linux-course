@@ -22,7 +22,7 @@ Tehtävä h3 sivulta: https://terokarvinen.com/linux-palvelimet/
 - opetetaan asentamaan apache2 ja tekemään kaikki perusasiat siihen pisteeseen, että tehty nettisivu näyttää halutun tekstin
 - ohjeissa käydään vielä läpi, kuinka paikallisesti voidaan simuloida nimipalvelun sivua  
 
-xx a) testaa, että web palvelimesi vastaa localhost osoitteesta
+## a) testaa, että web palvelimesi vastaa localhost osoitteesta
 
 ![localhost in web browser](h3images/localhosworks.png)  
 
