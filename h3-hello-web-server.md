@@ -86,6 +86,7 @@ index.html tiedosto
 Tässä lopputulos: 
 ![hattu.example.com](h3images/hattu.png)  
 
+## *d) Puuttuu tehvävälistasta*
   
 ## e) Tee validi html5 sivu
 
