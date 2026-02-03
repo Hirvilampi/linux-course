@@ -38,6 +38,11 @@ f) Palvelimen ohjelmien päivitys
 
 ## a) Vuokraa oma virtuaalipalvelin 
 
+Vuokrasin oman virtuaalipalvelimen UpCloudilta.  
+
+![upcloud](h4images/upcloud.png)  
+
+
 
 
 
