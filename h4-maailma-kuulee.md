@@ -40,14 +40,77 @@ f) Palvelimen ohjelmien päivitys
 
 Vuokrasin oman virtuaalipalvelimen UpCloudilta.  
 
-![upcloud](h4images/upcloud.png)  
+![upcloud](h4images/upcloud-uusi.png)  
 
 
+## b) Alkutoimet virtuaalipalvelimella  
+
+logataan sisään:  
+
+*ssh root@94.237.32.193*
 
 
+### Tulimuuri (firewall) päälle 
+
+  *sudo apt-get install ufw*  - Aloitetaan istanlloimalla ufw käskyllä
+
+  *sudo ufw allow 22/tcp*  - Tehdään SSH reikä ensin  
+  
+  *sufo ufw allow 80/tcp*  - Toinen reikä  
+
+  *sudo ufw enable* - Tulimuuri päälle  
+
+![pipeon_firewall_enable](h4images/firewall_pipe-uusi.png)  
+ 
+
+### Root tunnus kiinni  
+
+Tehdään uusi käyttäjä ja annetaan hänelle pääkäyttäjän oikeudet
+
+  *sudo adduser timo* - lisää käyttäjän  
+  *sudo adduser timo sudo* - lisää käyttäjän ryhmään sudo  
+  *sudo adduser timo adm* - lisää käyttäjän ryhmään adm  
+  *sudo adduser timo admin* - lisää käyttäjän ryhmään admin  
+  admin ryhmää ei ole, joten se tuottaa virheen
+
+![käyttäjän luominen ja oikeuksien antaminen](h4images/sudoadduser-uusi.png)  
+
+Kopioi SSH-avain käyttäjälle timo  
+
+*cp -r .ssh /home/timo* - kopioidaan .ssh kansio timo käyttäjän kotihakemistoon
+*sudo chown -R timo:timo /home/timo/* - tehdään .ssh kansiosta timo käyttäjän kansio
+
+![kopioidaan ssh kansio timolle](h4images/sshcopy.png)  
+
+Testaa toisessa terminaalissa, että toimii
+
+  *ssh timo@94.237.32.193* 
+
+![kirjoudutaan timona](h4images/sshtimo-uusi.png)  
 
 
-# Lähteet
+Lukitse root account  
+
+  *sudo usermod --lock root*  - lukitsee salasanan  
+  Vanhassa ohjeessa oli sshd_configin muuttamista, mutta päätin lopettaa kesken ja tarkastella muita ohjeita.  
+  *sudo mv -nv /root/.ssh /root/DISABLED-ssh/* - siirretään ssh avain paikkaan, mistä järjestelmä ei kirjautuessa sitä löydä    
+
+![lukitaan root](h4images/lock-root.png)  
+
+
+### Ohjelmien päivitys
+
+Päivitä ohjelmat käskyillä: 
+
+  *sudo apt-get update*  
+  *sudo apt-get upgrade*  
+
+
+![update](h4images/update-upgrade.png)  
+
+## c) Asenna weppipalvelin omalle virtuaalipalvelimellesi. Korvaa testisivu
+
+## Lähteet
 
 Lehto 2022: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/  
 Karvinen 2017: https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/  
