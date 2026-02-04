@@ -108,6 +108,8 @@ Päivitä ohjelmat käskyillä:
 
 ![update](h4images/update-upgrade.png)  
 
+Päivityksiä oli paljon ja kaikki sujui ongelmitta.  
+
 ## c) Asenna weppipalvelin omalle virtuaalipalvelimellesi. Korvaa testisivu
 
 ## Lähteet
