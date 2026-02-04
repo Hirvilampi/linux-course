@@ -110,7 +110,21 @@ Päivitä ohjelmat käskyillä:
 
 Päivityksiä oli paljon ja kaikki sujui ongelmitta.  
 
-## c) Asenna weppipalvelin omalle virtuaalipalvelimellesi. Korvaa testisivu
+## c) Asenna weppipalvelin omalle virtuaalipalvelimellesi. Korvaa testisivu.
+
+### Apache2 asennus  
+
+*sudo apt-get install apache2* - asentaa apache2:n 
+
+![apachen sivu latautuu osoitteessa 94.237.32.193](h4images/apache-load.png)  
+
+*echo "Default"|sudo tee /var/www/html/index.html* - muutetaan sivu sanomaan default
+
+![change index.html inside to default](h4images/change-to-default.png)  
+![show index.html](h4images/default-page.png)  
+
+
+
 
 ## Lähteet
 
