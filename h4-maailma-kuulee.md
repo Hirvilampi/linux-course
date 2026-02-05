@@ -56,7 +56,7 @@ logataan sisään:
 
   *sudo ufw allow 22/tcp*  - Tehdään SSH reikä ensin  
   
-  *sufo ufw allow 80/tcp*  - Toinen reikä  
+  *sudo ufw allow 80/tcp*  - Toinen reikä  
 
   *sudo ufw enable* - Tulimuuri päälle  
 
@@ -77,8 +77,8 @@ Tehdään uusi käyttäjä ja annetaan hänelle pääkäyttäjän oikeudet
 
 Kopioi SSH-avain käyttäjälle timo  
 
-*cp -r .ssh /home/timo* - kopioidaan .ssh kansio timo käyttäjän kotihakemistoon
-*sudo chown -R timo:timo /home/timo/* - tehdään .ssh kansiosta timo käyttäjän kansio
+*cp -r .ssh /home/timo* - kopioidaan .ssh kansio timo käyttäjän kotihakemistoon  
+*sudo chown -R timo:timo /home/timo/* - tehdään .ssh kansiosta timo käyttäjän kansio  
 
 ![kopioidaan ssh kansio timolle](h4images/sshcopy.png)  
 
