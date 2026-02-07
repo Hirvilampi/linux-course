@@ -120,9 +120,14 @@ Päivityksiä oli paljon ja kaikki sujui ongelmitta.
 
 *echo "Default"|sudo tee /var/www/html/index.html* - muutetaan sivu sanomaan default
 
-![change index.html inside to default](h4images/change-to-default.png)  
+![change index.html inside to default](h4images/change-to-default.png) 
+
+Testi selaimessa:  
+
 ![show index.html](h4images/default-page.png)  
 
+Testi puhelimessa:  
+![show index.html on phonw](h4images/94.237.32.193.png)  
 
 
 
