@@ -55,11 +55,14 @@ Tehdään ensin uusi hakemisto polkuun
 */home/timo/publicsites/*  
 ja lisätään sinne index.html  
 
-kuva
+kuva  
 
-Käydään sen jälkeen luomassa uusi .conf tiedosto
+Käydään sen jälkeen luomassa uusi .conf tiedosto  
 
-kuva siirtymäst ja uuden sivun sisällöstä
+kuva siirtymäst ja uuden sivun sisällöstä - ei toimi vielä  
+
+Poistin try.bonakota.com tiedostosta serveraliaksen ja muokkasin *ServerName try.bonakota.com*  
+Tämä alkoi toimimaan.
 
 
 
