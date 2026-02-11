@@ -69,9 +69,18 @@ Tehdään ensin uusi hakemisto polkuun
 
 ![tehdään try/ hakemisto](h5images/bonakota-try-dir.png) 
 ![luodaan index.html](h5images/bonakota-try-index.png) 
-![bonakota.conf serveralias try.bonakota.com](h5images/bonakota-conf-try-alias.png) 
 
-En vieläkään saa sivua try.bonakota.com latautumaan. Selaimen konsolista ei myöskään ollut suuresti apua.  
+Käydään sen jälkeen luomassa uusi try.bonakota.conf tiedosto ja laitetaan se päälle.  
+
+![bonakota.conf serveralias try.bonakota.com](h5images/bonakota-conf-try-alias.png) 
+![a2ensite try.bonakota.conf](h5images/bonakota-ensite-try.png) 
+
+testataan  
+
+![try.bonakota.com ei lataudu vieläkään](h5images/bonakota-try-test.png) 
+
+Hemmetti - eihän tämä toimi vieläkään. 
+Selaimen konsolista ei myöskään ollut suuresti apua.  
 
 ![web konsoli try.bonakota.com](h5images/bonakota-try-console.png) 
 
@@ -80,18 +89,14 @@ Tutkin lisää ja tarkemmin lähdesivua.
 try.bonakota.com pitääkin määritellä ServerName, eikä alias. Se siis tarvitsee oman .conf tiedoston.  
 Vaihtoehtoisesti sen voisi lisätä bonakota.conf tiedoston perään omana uutena VirtualHost:na, mutta  
 oma try.bonakota.conf tiedosto mahdollistaa virtualhostien ensite ja dissite tekemisen erikeen. 
-
-Käydään sen jälkeen luomassa uusi try.bonakota.conf tiedosto.  
-
-![try.bonakota.com ei lataudu vieläkään](h5images/bonakota-try-test.png) 
-
-Hemmetti - eihän tämä toimi vieläkään.  
-Poistin try.bonakota.com tiedostosta serveraliaksen ja muokkasin *ServerName try.bonakota.com*  
-Tämä alkoi toimimaan.  
+ 
+Poistin try.bonakota.com tiedostosta serveraliaksen ja muokkasin *ServerName try.bonakota.com*   
 
 ![working try.bonakota.conf servername try.bonakota.com](h5images/bonakota-try-conf.png) 
 ![a2ensite try.bonakota.conf](h5images/bonakota-ensite-try.png) 
 ![try.bonakota.com latautuu](h5images/bonakota-try-works.png) 
+
+Tämä alkoi toimimaan. Vihdoinkin. 
 
 Miksi näin? Tulin siihen tulokseen, että try.bonakota.com täytyy olla omana ServerName määritelty,  
 koska se osoittaa omaan hakemistoon. Mikäli try.bonakota.com osoittaisi samaan hakemistoon kuin  
@@ -118,28 +123,13 @@ Lähde: https://dnsmadeeasy.com/resources/cname-records-explained
 Lisäsin CNAME tiedon DNS tietoihin nimipalvelussa ja .conf tiedostoon.
 
 KUVA-lisätty nimi palveluun namecheap cname
-![](h5images/bonakotas.png) 
+![dns cname support osoittaa kohtseeseen bonakota.com](h5images/bonakota-support-dns.png) 
 
 KUVA - bonakota.conf
-![](h5images/bonakotas.png) 
-
-Sivu ei kuitenkaan heti latautunut.  
-
-KUVA - error 
-![](h5images/bonakotas.png) 
-
-Tämä oli outoa, koska ping ja curl sivusta toimivat.  
-
-KUVA ping curl  
-![](h5images/bonakotas.png) 
-
-Toisella laitteella tämä kuitenkin toimi ja lopulta sivu latautui myös tässä koneella.  
-
-KUVA - TOINEN LAITE
-![](h5images/bonakotas.png) 
+![bonacota.conf sisältää serveralias support.bonakota.com](h5images/bonakota-cname-support.png) 
 
 KUVA - support.bonakota.com
-![](h5images/bonakotas.png) 
+![support.bonakota.com toimiii](h5images/bonakota-support-www.png) 
 
 
 
