@@ -5,7 +5,9 @@ Tehtävä h5 sivulta: https://terokarvinen.com/linux-palvelimet/
 # Tehtava H5 Nimekäs
 
 ## a) Nimi. Laita julkinen nimi osoittamaan omaan koneeseesi.  
-
+  
+Hankin nimen bonakota.com NameCheapin kautta. Nimeksi valitsin tuon, koska teen yhtä projektia tuolla  
+nimellä.  
 
 ![namecheap bonakota.com](h5images/bonakota.png)  
   
