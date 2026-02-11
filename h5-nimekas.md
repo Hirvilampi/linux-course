@@ -43,7 +43,10 @@ Sivu alkoi heti näkymään netissä osoitteessa bonakota.com
 Kokeilin myös kännykällä ja sivu näkyy siellä samalla tavalla. 
 Lisäksi kokeilin www.bonakota.com ja se toimii myös.  
 
+
 ## b) Alidomain. Tee kaksi uutta alidomainia.  
+
+### A-tietueen alidomain 
 
 Tein uuden alidomainin domain list:n kautta bonakota.com Namecheapin kautta. 
 Tämä tehtävän mukaisesti A Record:a käyttäen.  Uuden alidomainin nimi on try.bonakota.com
@@ -110,7 +113,7 @@ aakkosjärjestyksessä olevasta lokista löytyy etsintään kelpaava vastaus, se
 Tämän vuoksi default loki on nimeltään 000-default.conf.  On siis tärkeää muistaa tämä jatkossa, jos  
 VirtualHost:ja on käytössä enemmänkin.
 
-CNAMEn lisääminen. 
+### CNAME alidomain. 
 
 CNAME eroaa A Recordista siten, että siinä DNS tunnusta käytetään aliaksena toisella domain nimelle.
 Tämä eroaa A Recordista käytännössä niin, että samalla kun A Record laitetaan osoittamaan suoraan  
@@ -120,16 +123,31 @@ CNAME suurin hyöty on yksinkertaistaa kokonaisuuden hallintaa
 
 Lähde: https://dnsmadeeasy.com/resources/cname-records-explained  
 
-Lisäsin CNAME tiedon DNS tietoihin nimipalvelussa ja .conf tiedostoon.
+Lisäsin CNAME tiedon DNS tietoihin nimipalvelussa ja bonakota.conf tiedostoon ServerAliakseksi.
 
-KUVA-lisätty nimi palveluun namecheap cname
 ![dns cname support osoittaa kohtseeseen bonakota.com](h5images/bonakota-support-dns.png) 
-
-KUVA - bonakota.conf
 ![bonacota.conf sisältää serveralias support.bonakota.com](h5images/bonakota-cname-support.png) 
 
-KUVA - support.bonakota.com
+Tässä minulla oli hiukan haasteita, koska samalla tietokoneella sivu ei auennut. Kokeilin kännykkää ja toista konetta, 
+niillä sivu latautui. Lopulti yli tunnin jälkeen kuva avautui myös omalla koneella. 
+
 ![support.bonakota.com toimiii](h5images/bonakota-support-www.png) 
+
+
+
+## c) Tutki jonkin nimen DNS tietoja host ja dig komennoilla  
+
+
+Kokeilin molempia ensin omaan timolampinen.com osoitteeseen, joka on ollut käytössäni jo vuosia.  
+
+![host dig timolampinen.com](h5images/host-dig.png)
+
+Palveluni on löytyy osoitteesta 216.198.79.1  
+Itseasiassa minulla on nimipalvelu ja webbihotelli samasta paikasta, mutta tein uuden nettisivut ja laitoin sen 
+next.js projektin verceliin. Nimipalvelu ohjaa kyselyt suoraan osoitteeseen 216.198.79.1
+
+
+
 
 
 
@@ -142,3 +160,4 @@ KUVA - support.bonakota.com
 
 EksisONE 2012: https://www.eksis.one/artikkelit/apache2/apache2-ja-alidomain/  
 Apache: https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
+Lähde: https://dnsmadeeasy.com/resources/cname-records-explained  
