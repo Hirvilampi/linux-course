@@ -41,7 +41,7 @@ Sivu alkoi heti näkymään netissä osoitteessa bonakota.com
 Kokeilin myös kännykällä ja sivu näkyy siellä samalla tavalla. 
 Lisäksi kokeilin www.bonakota.com ja se toimii myös.  
 
-## b) Alidomain. Tee kaksi uutta alidomainia.
+## b) Alidomain. Tee kaksi uutta alidomainia.  
 
 Tein uuden alidomainin domain list:n kautta bonakota.com Namecheapin kautta. 
 Tämä tehtävän mukaisesti A Record:a käyttäen.  Uuden alidomainin nimi on try.bonakota.com.
@@ -64,12 +64,13 @@ Sivujen erottamiseksi toisistaan, haluan tehdä sivulle oman index.html tiedosto
 Tehdään ensin uusi hakemisto polkuun  
 */home/timo/publicsites/*  ja lisätään sinne *index.html*    
 
-kuva  
+
 ![tehdään try/ hakemisto](h5images/bonakota-try-dir.png) 
 ![luodaan index.html](h5images/bonakota-try-index.png) 
 ![bonakota.conf serveralias try.bonakota.com](h5images/bonakota-conf-try-alias.png) 
 
 En vieläkään saa sivua try.bonakota.com latautumaan. Selaimen konsolista ei myöskään ollut suuresti apua.  
+
 ![web konsoli try.bonakota.com](h5images/bonakota-try-console.png) 
 
 
@@ -80,16 +81,27 @@ oma try.bonakota.conf tiedosto mahdollistaa virtualhostien ensite ja dissite tek
 
 Käydään sen jälkeen luomassa uusi try.bonakota.conf tiedosto.  
 
-kuva siirtymäst ja uuden sivun sisällöstä - ei toimi vielä  
 ![try.bonakota.com ei lataudu vieläkään](h5images/bonakota-try-test.png) 
 
-
+Hemmetti - eihän tämä toimi vieläkään.  
 Poistin try.bonakota.com tiedostosta serveraliaksen ja muokkasin *ServerName try.bonakota.com*  
-Tämä alkoi toimimaan.
+Tämä alkoi toimimaan.  
 
 ![working try.bonakota.conf servername try.bonakota.com](h5images/bonakota-try-conf.png) 
 ![a2ensite try.bonakota.conf](h5images/bonakota-ensite-try.png) 
 ![try.bonakota.com latautuu](h5images/bonakota-try-works.png) 
+
+Miksi näin? Tulin siihen tulokseen, että try.bonakota.com täytyy olla omana ServerName määritelty,  
+koska se osoittaa omaan hakemistoon. Mikäli try.bonakota.com osoittaisi samaan hakemistoon kuin  
+bonakota.com, silloin se voisi olla määritelty ServerAliaksena. Tämä käy järkeen, sillä ServerName ja
+ServerAlias on osoitettava samaan polkuun.  
+Päättelyn lisäksi on löysin saman tiedon myös Apachen dokumentaatiosta:  
+https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
+
+Mielenkiinoinen yksityiskohta.  Apache lukee .conf tiedostot aakkosjärjestyksessä, joten jos aiemmin  
+aakkosjärjestyksessä olevasta lokista löytyy etsintään kelpaava vastaus, se käytetään ja näytetään.  
+Tämän vuoksi default loki on nimeltään 000-default.conf.  On siis tärkeää muistaa tämä jatkossa, jos  
+VirtualHost:ja on käytössä enemmänkin.
 
 CNAMEn lisääminen. 
 
@@ -137,4 +149,4 @@ KUVA - support.bonakota.com
 ## Lähteet  
 
 EksisONE 2012: https://www.eksis.one/artikkelit/apache2/apache2-ja-alidomain/  
-
+Apache: https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
