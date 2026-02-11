@@ -54,7 +54,7 @@ Tämä ei varmaankaan vielä toimi näin, mutta testataan:
 
 ![try.bonakota.com netti näyttää tyhjää](h5images/bonakota-try-test.png) 
 
-Ei toiminut. Tämä pitää varmasti lisätä .conf tiedostoon.  
+Ei toiminut. Pitänee lisätä try.bonakota.com .conf tiedostoon.  
 
 ![lisätään bonakota.conf tiedostoon serveralias try.bonakota.conf](h5images/bonakota-conf-try.png) 
 
