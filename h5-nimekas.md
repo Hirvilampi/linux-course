@@ -34,7 +34,7 @@ Tämän jälkeen lisäsin kaksi a-record, host ja value ja päivitysnopeus väli
 Kopioin vanhan timo.example.com.conf pohjaksi bonakota.conf tiedostolle ja muokkasin siihen oikeat tiedot.  
 Tämän jälkeen poistin vanhan .conf käytöstä, otin uuden käyttöön ja käynnistin apache2:n uudestaan.
 
-![make bonakota.conf and ensite it. Then restart server](h5images/bonakota-timo-2-bonakota-conf.png)  
+![make bonakota.conf and ensite it. Then restart server](h5images/bonakota-uusi-conf.png)  
 
 Sivu alkoi heti näkymään netissä osoitteessa bonakota.com  
 
