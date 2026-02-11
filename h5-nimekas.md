@@ -29,6 +29,11 @@ Tämän jälkeen lisäsin kaksi a-record, host ja value ja päivitysnopeus väli
 
   ![namecheap bonakota.com new records](h5images/bonakota-add-new-records.png)  
   
+Kopioin vanhan timo.example.com.conf pohjaksi bonakota.conf tiedostolle ja muokkasin siihen oikeat tiedot.  
+Tämän jälkeen poistin vanhan .conf käytöstä, otin uuden käyttöön ja käynnistin apache2:n uudestaan.
+
+![make bonakota.conf and ensite it. Then restart server](h5images/bonakota-timo-2-bonakota-conf.png)  
+
 Sivu alkoi heti näkymään netissä osoitteessa bonakota.com  
 
   ![namecheap bonakota.com timo's page](h5images/bonakota-com-timos-page.png)  
