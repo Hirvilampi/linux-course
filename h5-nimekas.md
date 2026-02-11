@@ -144,7 +144,9 @@ Kokeilin molempia ensin omaan timolampinen.com osoitteeseen, joka on ollut käyt
 
 Palveluni on löytyy osoitteesta 216.198.79.1  
 Itseasiassa minulla on nimipalvelu ja webbihotelli samasta paikasta, mutta tein uuden nettisivut ja laitoin sen 
-next.js projektin verceliin. Nimipalvelu ohjaa kyselyt suoraan osoitteeseen 216.198.79.1
+next.js projektin verceliin. Nimipalvelu ohjaa kyselyt suoraan osoitteeseen 216.198.79.1. Näin sen pitääkin toimia.  
+Hyvä huomata, että omistamani webhotellin IP-osoite ei näy ollenkaan. Tämä kertoo myös minulle sen, että voin aivan  
+hyvin luopua tuosta webbihotellista.  
 
 
 
