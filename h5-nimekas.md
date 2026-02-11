@@ -46,7 +46,7 @@ Lisäksi kokeilin www.bonakota.com ja se toimii myös.
 ## b) Alidomain. Tee kaksi uutta alidomainia.  
 
 Tein uuden alidomainin domain list:n kautta bonakota.com Namecheapin kautta. 
-Tämä tehtävän mukaisesti A Record:a käyttäen.  Uuden alidomainin nimi on try.bonakota.com.
+Tämä tehtävän mukaisesti A Record:a käyttäen.  Uuden alidomainin nimi on try.bonakota.com
 
 ![Added A Record try.bonakota.com on 185.20.138.164 on DNS HOST records](h5images/bonakota-try.png) 
 
