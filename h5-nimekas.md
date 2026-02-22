@@ -148,7 +148,7 @@ next.js projektin verceliin. Nimipalvelu ohjaa kyselyt suoraan osoitteeseen 216.
 Hyvä huomata, että omistamani webhotellin IP-osoite ei näy ollenkaan. Tämä kertoo myös minulle sen, että voin aivan  
 hyvin luopua tuosta webbihotellista.  
 
-HOST -komento
+### HOST -komento
 
 Käydään läpi tarkemmin komentojen antamia tietoja. Host antaa enemmän tietoa -v parametrilla. Kokeillaan siis:  
 *host -v timolampinen.com*  
@@ -194,7 +194,7 @@ keyframe.fi löytyy IPv6 (AAAA) osoite, mutta ei HTTPS-tietoa.
 youtube.com sen sijaan antaa vastaukset kaikkiin näihin.  
 
 
-DIG-komento ja sen antamat tiedot.
+### DIG-komento ja sen antamat tiedot.
 
 
 
@@ -209,3 +209,6 @@ DIG-komento ja sen antamat tiedot.
 EksisONE 2012: https://www.eksis.one/artikkelit/apache2/apache2-ja-alidomain/  
 Apache: https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
 Lähde: https://dnsmadeeasy.com/resources/cname-records-explained  
+https://phoenixnap.com/kb/linux-host   
+https://www.hacktress.com/what-is-host/   
+
