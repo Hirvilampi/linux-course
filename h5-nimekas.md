@@ -108,10 +108,10 @@ ServerAlias on osoitettava samaan polkuun.
 Päättelyn lisäksi on löysin saman tiedon myös Apachen dokumentaatiosta:  
 https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
 
-Mielenkiinoinen yksityiskohta.  Apache lukee .conf tiedostot aakkosjärjestyksessä, joten jos aiemmin  
-aakkosjärjestyksessä olevasta lokista löytyy etsintään kelpaava vastaus, se käytetään ja näytetään.  
-Tämän vuoksi default loki on nimeltään 000-default.conf.  On siis tärkeää muistaa tämä jatkossa, jos  
-VirtualHost:ja on käytössä enemmänkin.
+Mielenkiinoinen yksityiskohta.  Debian ympäristössä Apache lukee .conf tiedostot aakkosjärjestyksessä, 
+joten jos aiemmin aakkosjärjestyksessä olevasta lokista löytyy etsintään kelpaava vastaus, se käytetään  
+ja näytetään.  Tämän vuoksi default loki on nimeltään 000-default.conf.  On siis tärkeää muistaa tämä  
+jatkossa, jos VirtualHost:ja on käytössä enemmänkin.
 
 ### CNAME alidomain. 
 
@@ -188,7 +188,7 @@ timolampinen.com IN MX - kysyy sähköpostipalvelinta
 vastauksena mail.timolampinen.com  
 TLL arvo on 2847, eli tämä pysyy välimuistissa 2847 sekuntia  
 
-timolampinen.com IN HTTPS - kysyy HTTPS DNS tietuetta  
+timolampinen.com IN HTTPS - kysyy HTTPS DNS tietuetta. Kaikki domainit eivät vielä käytä tätä.    
 Headerissa ANSWER: 0, kertoo ettei saa vastausta ja palauttaa SOA:n  
 SOA (Start of Authority) kertoo pavelimen, joka hallistee verkkotunnusta eli ns1.radicenter.com  
 TTL arvo 60, kertoo että tieto pysyy välimuistissa 60 sekuntia  
@@ -217,7 +217,7 @@ Kokeillaan perus dig käskyä parametreilla timolampinen.com ja youtube.com
 
 ![dig timolampinen ja youtube.com](h5images/dig-timolampinen-youtube.png)  
 
-Vastauksissa ei ole oleellista eroa. Answer section näyttää samalta kuin Host komennossa, mutta näyttää vain IPv4 osoitteen.
+Vastauksissa ei ole oleellista eroa. dig kysyy oletuksena A-tietuetta, joten vastaus osiossa näkyy vain IPv4-osoite.
 
 Tämä komento sen sijaan näyttää vielä enemmän tietoa.
 *dig timolampinen.com ANY +all*  
@@ -225,6 +225,7 @@ Tämä komento sen sijaan näyttää vielä enemmän tietoa.
 ![dig timolampinen.com ANY +all](h5images/dig-timolampinen-any-all.png)  
 
 Tästä emme kuitenkaan saa irti enempää tietoa, kuin mitä nimipalvelin käskyllä lähettää.  
+Mistä johtuu, ettei kaikkea tietoa lähetetä?  
 
 Ajetaan sama keyframe.fi osoitteelle  
 *dig keyframe.fi ANY +all* 
@@ -257,6 +258,9 @@ Kokeillaan eri komentoja, jos näistä tulisi enemmän tietoa:
 No nyt saadaan näkymään myös MX, HTTPS js NS.  Tässä mielenkiintoista on, että nyt  
 *dig youtube.com ANY +all* näyttää enemmän tietoa kuin aiemmin. 
 
+Tarkemmalla tutkimuksella selvisi, että dig parametri voi olla vain yksi näistä HTTPS, A, AAAA, MX jne tai sitten ANY,  
+mikä sisältää kaikki pyynnöt.
+
 *dig* komennolla voi tehdä kaikenlaista, mutta jätetään syvemmälle meneminen jokaisen omaan tiedonhankinnan piiriin.  
 Osion alussa mainittu lähde on erinomainen tähän.
 
@@ -265,10 +269,10 @@ Osion alussa mainittu lähde on erinomainen tähän.
 
 ## Lähteet  
 
-EksisONE 2012: https://www.eksis.one/artikkelit/apache2/apache2-ja-alidomain/  
-Apache: https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
-Lähde: https://dnsmadeeasy.com/resources/cname-records-explained  
-https://phoenixnap.com/kb/linux-host   
-https://www.hacktress.com/what-is-host/   
-https://avenacloud.com/blog/using-dig-and-host-commands-for-dns-troubleshooting/#   
+EksisONE – Apache2 ja alidomain 2012: https://www.eksis.one/artikkelit/apache2/apache2-ja-alidomain/  
+Apache HTTP Server Documentation: https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
+DNS Made Easy – CNAME Records Explained: https://dnsmadeeasy.com/resources/cname-records-explained  
+PhoenixNAP – Linux host command: https://phoenixnap.com/kb/linux-host   
+PhoenixNAP – Linux dig command examples: https://www.hacktress.com/what-is-host/   
+AvenaCloud – Using dig and host commands for DNS troubleshooting: https://avenacloud.com/blog/using-dig-and-host-commands-for-dns-troubleshooting/#   
 
