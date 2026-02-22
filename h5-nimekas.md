@@ -133,20 +133,35 @@ niillä sivu latautui. Lopulti yli tunnin jälkeen kuva avautui myös omalla kon
 
 ![support.bonakota.com toimiii](h5images/bonakota-support-www.png) 
 
-
+  
 
 ## c) Tutki jonkin nimen DNS tietoja host ja dig komennoilla  
+
+  
+Analysoidakseni enemmän tietoa hain netistä artikkelia, joka kertoisi näiden eroista. Löysin tämän nettisivun  
+https://avenacloud.com/blog/using-dig-and-host-commands-for-dns-troubleshooting/#   
+Nettisivu avaa hienostie molempien komentojen erosta.  Ero on selkeä ja sen voi tiivistää näin:  
+*dig* antaa enemmän vaihtoehtoja ja yksityiskohtaiseen analyysiin, kun taas  
+*host* tarjoaa nopeutta ja helppoutta.  
+
 
 
 Kokeilin molempia ensin omaan timolampinen.com osoitteeseen, joka on ollut käytössäni jo vuosia.  
 
 ![host dig timolampinen.com](h5images/host-dig.png)
 
-Host kertoo, että palveluni on löytyy osoitteesta 216.198.79.1  
-Itseasiassa minulla on nimipalvelu ja webbihotelli samasta paikasta, mutta tein uuden nettisivut ja laitoin sen 
-next.js projektin verceliin. Nimipalvelu ohjaa kyselyt suoraan osoitteeseen 216.198.79.1. Näin sen pitääkin toimia.  
-Hyvä huomata, että omistamani webhotellin IP-osoite ei näy ollenkaan. Tämä kertoo myös minulle sen, että voin aivan  
-hyvin luopua tuosta webbihotellista.  
+Host kertoo, että palveluni on löytyy osoitteesta 216.198.79.1 ja sähköpostipalvelimen mail.timolampine.com nimen.  
+Dig taas antaa heti paljon enemmän tietoa, kuten kuinka kauan kestää, että tieto sivusta päivitettään eli TTL tieto. TTL on 3600 sekuntia.  
+A tietue, eli IPv4 osoiteavaruus ja IP-osoite 216.198.79.1 
+Tämän lisäksi DIG palauttaa paljon tietoa itse kyselystä, kuten kestosta, ajasta ja vastauksen koosta.  
+
+Minua kiinnostava välihuomio:  
+Itseasiassa minulla on nimipalvelu ja webbihotelli samasta paikasta, mutta tein uuden nettisivut ja laitoin projektin verceliin. 
+Nimipalvelu ohjaa kyselyt suoraan vercelin osoitteeseen 216.198.79.1. Aiemmin käytetyn nettihotellin IPv4 osoitetta ei näy ollenkaan. 
+Näin sen pitääkin toimia.  Tämä kertoo myös minulle sen, että voin aivan hyvin luopua tuosta webbihotellista.  
+
+Pureudutaan tarkemmin molempiin komentoihin.   
+
 
 ### HOST -komento
 
@@ -181,7 +196,7 @@ TTL arvo 60, kertoo että tieto pysyy välimuistissa 60 sekuntia
 lähteet: https://phoenixnap.com/kb/linux-host   
 https://www.hacktress.com/what-is-host/   
 
-Verrataan timolampinen.com, keyframe.fi ja youtube.com host tietoja keskenään:
+Verrataan timolampinen.com, keyframe.fi ja youtube.com host tietoja keskenään:17
 
 ![host -v timolampinen.com](h5images/host-v-timolampinen.png)  
 ![host -v keyframe.fi](h5images/host-v-keyframe.png)  
@@ -196,10 +211,54 @@ youtube.com sen sijaan antaa vastaukset kaikkiin näihin.
 
 ### DIG-komento ja sen antamat tiedot.
 
+lähde: https://phoenixnap.com/kb/linux-dig-command-examples  
+
+Kokeillaan perus dig käskyä parametreilla timolampinen.com ja youtube.com  
+
+![dig timolampinen ja youtube.com](h5images/dig-timolampinen-youtube.png)  
+
+Vastauksissa ei ole oleellista eroa. Answer section näyttää samalta kuin Host komennossa, mutta näyttää vain IPv4 osoitteen.
+
+Tämä komento sen sijaan näyttää vielä enemmän tietoa.
+*dig timolampinen.com ANY +all*  
+
+![dig timolampinen.com ANY +all](h5images/dig-timolampinen-any-all.png)  
+
+Tästä emme kuitenkaan saa irti enempää tietoa, kuin mitä nimipalvelin käskyllä lähettää.  
+
+Ajetaan sama keyframe.fi osoitteelle  
+*dig keyframe.fi ANY +all* 
+
+![dig keyframe.fi ANY +all](h5images/dig-keyframe-any-all.png)  
+
+Tämä antaa hiukan enemmän tietoa, eli kaksi eri IPv4-osoitetta.
 
 
+Ajetaan sama youtube.com osoitteelle  
+*dig youtube.com ANY +all*  
+
+![dig youtube.com ANY +all](h5images/dig-youtube-any-all.png)  
+
+Youtuben ollessa kyseessä, näemme myös usean nimipalvelimen.  
+Kuitenkaan, emme näe tietoa tietoa esimerkiksi MX, HTTPS tai SOA tietoja.  
+
+Näitä voi myös digiä käyttäen hakea, kun laittaa nuo parametriksi.  
+
+*dig youtube.com HTTPS SOA MX +all*
 
 
+![dig youtube.com HTTPS SOA MX +all](h5images/dig-youtube-https-soa-mx-all.png)  
+
+Outoa. Tämä antaakin vain sähköpostipalvelimen.  
+Kokeillaan eri komentoja, jos näistä tulisi enemmän tietoa:  
+
+![dig youtube.com HTTPS ANY +all 3 kertaa](h5images/dig-youtube-https-any-all-3krt.png)  
+
+No nyt saadaan näkymään myös MX, HTTPS js NS.  Tässä mielenkiintoista on, että nyt  
+*dig youtube.com ANY +all* näyttää enemmän tietoa kuin aiemmin. 
+
+*dig* komennolla voi tehdä kaikenlaista, mutta jätetään syvemmälle meneminen jokaisen omaan tiedonhankinnan piiriin.  
+Osion alussa mainittu lähde on erinomainen tähän.
 
 
 
@@ -211,4 +270,5 @@ Apache: https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=
 Lähde: https://dnsmadeeasy.com/resources/cname-records-explained  
 https://phoenixnap.com/kb/linux-host   
 https://www.hacktress.com/what-is-host/   
+https://avenacloud.com/blog/using-dig-and-host-commands-for-dns-troubleshooting/#   
 
