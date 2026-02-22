@@ -142,13 +142,59 @@ Kokeilin molempia ensin omaan timolampinen.com osoitteeseen, joka on ollut käyt
 
 ![host dig timolampinen.com](h5images/host-dig.png)
 
-Palveluni on löytyy osoitteesta 216.198.79.1  
+Host kertoo, että palveluni on löytyy osoitteesta 216.198.79.1  
 Itseasiassa minulla on nimipalvelu ja webbihotelli samasta paikasta, mutta tein uuden nettisivut ja laitoin sen 
 next.js projektin verceliin. Nimipalvelu ohjaa kyselyt suoraan osoitteeseen 216.198.79.1. Näin sen pitääkin toimia.  
 Hyvä huomata, että omistamani webhotellin IP-osoite ei näy ollenkaan. Tämä kertoo myös minulle sen, että voin aivan  
 hyvin luopua tuosta webbihotellista.  
 
+HOST -komento
 
+Käydään läpi tarkemmin komentojen antamia tietoja. Host antaa enemmän tietoa -v parametrilla. Kokeillaan siis:  
+*host -v timolampinen.com*  
+
+![host -v timolampinen.com](h5images/host-v-timolampinen.png)  
+
+Header kertoo headerissa kyselyn perustiedot ja onnistuiko kysely vai ei.
+
+Question osuus kertoo aina mitä kysytään ja Answer vastauksen.  
+
+timolampinen.com IN A - kysyy IPv4 osoitetta   
+vastauksena 2847 IN A 216.198.79.1  
+TLL arvo on 2847, eli tämä pysyy välimuistissa 2847 sekuntia, ennen kuin se tarkastetaan uudelleen.  
+216.198.79.1 on IPv4 osoite  
+
+timolampinen.com IN AAAA - kysyy IPv6 osoitetta
+Headerissa ANSWER: 0, kertoo ettei kysymykseen löytynyt suoraa vastausta ja palautta SOA vastauksen   
+SOA (Start of Authority) kertoo pavelimen, joka hallistee verkkotunnusta eli ns1.radicenter.com  
+TTL arvo 60, kertoo että tieto pysyy välimuistissa 60 sekuntia  
+
+timolampinen.com IN MX - kysyy sähköpostipalvelinta  
+vastauksena mail.timolampinen.com  
+TLL arvo on 2847, eli tämä pysyy välimuistissa 2847 sekuntia  
+
+timolampinen.com IN HTTPS - kysyy HTTPS DNS tietuetta  
+Headerissa ANSWER: 0, kertoo ettei saa vastausta ja palauttaa SOA:n  
+SOA (Start of Authority) kertoo pavelimen, joka hallistee verkkotunnusta eli ns1.radicenter.com  
+TTL arvo 60, kertoo että tieto pysyy välimuistissa 60 sekuntia  
+
+lähteet: https://phoenixnap.com/kb/linux-host   
+https://www.hacktress.com/what-is-host/   
+
+Verrataan timolampinen.com, keyframe.fi ja youtube.com host tietoja keskenään:
+
+![host -v timolampinen.com](h5images/host-v-timolampinen.png)  
+![host -v keyframe.fi](h5images/host-v-keyframe.png)  
+![host -v youtube.com](h5images/host-v-youtube.png)  
+
+IPv4 (A) ja mail-server (MX) kyselyt tuottavat kaikista osoitteista tulokset.  
+Isoimmat erot huomaamme koskien IPv6 kyselyn (AAAA) ja HTTPS kyselyn tuloksia katsoen.  
+timolampinen.com ei  ole määrittellyt IPv6 (AAAA) eikä HTTPS tietoa.
+keyframe.fi löytyy IPv6 (AAAA) osoite, mutta ei HTTPS-tietoa.  
+youtube.com sen sijaan antaa vastaukset kaikkiin näihin.  
+
+
+DIG-komento ja sen antamat tiedot.
 
 
 
