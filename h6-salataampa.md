@@ -14,15 +14,12 @@ The Apache Software Foundation 2025: Apache HTTP Server Version 2.4 [Official] D
 
 ## a) Let's - asenna palvelimellesi ilmainen TLS-sertifikaatti Let's Encryptilta. Osoita, että se toimii.  
 
-Kirjaudun ensin sisään palvelimelle  
+Kirjaudun ensin sisään palvelimelle  ja varmistetaan, että daemon apache2 on käynnissä  
 *ssh timo@185.20.138.164*  
-
-Tsekataan, että apache2 on päällä  
 *sudo systemctl restart apache2*  
 
-![ssh ja update toimivat](h6images/ssh-update.png)  https://github.com/Hirvilampi/linux-course/blob/main/h6images/ssh-update%20.png
-
-Toimiii, koska ei anna mitään viestiä    
+![ssh ja update toimivat](h6images/ssh-update.png)  
+  
 
 Tarkastetaan web-sivun näkyvyys lataamalla bonakota.com.
 Toimii tällä koneella, sekä toisella koneella. 
