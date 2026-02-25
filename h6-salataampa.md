@@ -20,14 +20,14 @@ Kirjaudun ensin sisään palvelimelle
 Tsekataan, että apache2 on päällä  
 *sudo systemctl restart apache2*  
 
-![ssh ja update toimivat](h6images/ssh-update.png)  
+![ssh ja update toimivat](h6images/ssh-update.png)  https://github.com/Hirvilampi/linux-course/blob/main/h6images/ssh-update%20.png
 
 Toimiii, koska ei anna mitään viestiä    
 
 Tarkastetaan web-sivun näkyvyys lataamalla bonakota.com.
 Toimii tällä koneella, sekä toisella koneella. 
 
-![http://bonakota.com latautuu](h6images/bonakota.works.png)  
+![http://bonakota.com latautuu](h6images/bonakota-works.png)  
 
 Ensin update palvelimen ohjelmistolle  
 *sudo apt-get update*  
@@ -55,7 +55,7 @@ Tehdään reikä palomuuriin https portille 443. Tarkastetaan reiät palomuuriss
 *sudo ufw 443/tcp*  
 *sudo ufw status verbose*  
 
-![tehdään reikä ja tarkastetaan, että reikä ilmestyi](h6images/uwf-allow-443-verbose.png)  
+![tehdään reikä ja tarkastetaan, että reikä ilmestyi](h6images/uwf-allow-443-status.png)  
 
 Kokeillaan toimiiko bonakota.com https protokollalla sivulla https://bonakota.com  
 
