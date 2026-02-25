@@ -66,4 +66,15 @@ Testasin varmuuden vuoksi vielä toisella koneella ja puhelimella bonakota.com, 
 
 ## b) A-rating. Testaa sivusi TLS laadunvarmistustyökalulla  
 
+Testataan bonakota.com osoitteessa www.ssllabs.com  
 
+![received a A rating from SSL Labs ](h6images/ssl-labs-bonakota.png)  
+
+Näyttää toimivan. Mukana on lisää sivuja, jotka kertovat lisää tietoa. Tässä pieni näyte:
+
+![TLS sertifikaatiti ja mm missä handshake on toiminut ja missä ei](h6images/tls-handshake.png)  
+
+Huomaamme että sivulla ovat voimassa protokollat TLS 1.2 ja TLS 1.3.   
+On mielenkiintoista huomata myös, että monella handshake-simulaatio toimii, mutta Chrome 49 + window XP Service Pack 3 kokonaisuudessa ei toimi.  
+
+## c)
