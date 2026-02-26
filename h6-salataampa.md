@@ -82,6 +82,10 @@ Myös Safarin muutamat versiot vanhoilla iOS käyttöjärjestelmillä, eivät on
 
 Kokeilen lisätä DNS CAA palvelimen tietoja, saisiko sillä tuota muutettua, seuraavilla DNS palvelun asetuksilla.  
 
+![DNS CAA settings issuewild](h6images/caa-issuewild.png)  
+
+Katsotaan mikä on tulos SLS Labs:n testissä
+
 ![DNS CAA no on SLS Labs](h6images/sls-dns-caa-no.png)  
 
 Sls Labs antaa edelleen virheellisen tiedon. 
@@ -95,7 +99,7 @@ Joskus CAA muutokset kestävät pitkiä aikoja, joten päätän kokeilla huomenn
 Seuraavan päivän SLS Labs ajo antaa DNS CAA ok tuloksen.
 
 
-![sls caa bonakota toimii](h6images/sls-caa-ok.png)  
+![sls caa bonakota toimii](h6images/sls-labs-caa-ok.png)  
 
 
 
