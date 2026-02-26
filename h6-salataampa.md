@@ -160,7 +160,7 @@ salasana SALASANA
 
 ![lomake netissä](h6images/salasana.png)  
 
-Samaan aikaan ngrep:ssä  
+Samaan aikaan ngrep:ssä - kiinnitä huomiota POST viimeiselle riville. 
 
 ![mitä ngrep antaa](h6images/ngrep-salasana.png)  
 
