@@ -70,11 +70,37 @@ Testataan bonakota.com osoitteessa www.ssllabs.com
 
 ![received a A rating from SSL Labs ](h6images/ssl-labs-bonakota.png)  
 
-Näyttää toimivan. Mukana on lisää sivuja, jotka kertovat lisää tietoa. Tässä pieni näyte:
+Näyttää toimivan. Toki DNS CAA tuottaa vastauksen no. Katsoessa infoa selviää, ettei tämä ole vielä monellakaan nettisaitilla käytössä
+Mukana on lisää sivuja, jotka kertovat lisää tietoa. Tässä pieni näyte:
 
 ![TLS sertifikaatiti ja mm missä handshake on toiminut ja missä ei](h6images/tls-handshake.png)  
+![safari ja ios joissa handshake ei toimi](h6images/handshake-no-2.png)  
 
 Huomaamme että sivulla ovat voimassa protokollat TLS 1.2 ja TLS 1.3.   
 On mielenkiintoista huomata myös, että monella handshake-simulaatio toimii, mutta Chrome 49 + window XP Service Pack 3 kokonaisuudessa ei toimi.  
+Myös Safarin muutamat versiot vanhoilla iOS käyttöjärjestelmillä, eivät onnistu handshake testissä. 
+
+Kokeilen lisätä DNS CAA palvelimen tietoja, saisiko sillä tuota muutettua, seuraavilla DNS palvelun asetuksilla.  
+
+![DNS CAA no on SLS Labs](h6images/sls-dns-caa-no.png)  
+
+Sls Labs antaa edelleen virheellisen tiedon. 
+Kokeilen mitä dig antaa komennolla  
+*dig CAA bonakota.com"  
+
+![dig caa bonakota toimii](h6images/dig-caa-bonakota.png)  
+
+Joskus CAA muutokset kestävät pitkiä aikoja, joten päätän kokeilla huomenna.  
+
+Seuraavan päivän SLS Labs ajo antaa DNS CAA ok tuloksen.
+
+
+![sls caa bonakota toimii](h6images/sls-caa-ok.png)  
+
+
+
+
+
+
 
 ## c)
