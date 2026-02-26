@@ -7,7 +7,11 @@ Tehtävä h6 sivulta: https://terokarvinen.com/linux-palvelimet/
 ## x) Lue ja tiivistä  
 
 Let's Encrypt 2024: How it works (https://letsencrypt.org/how-it-works/)  
--  
+- ensimmäiset kaksi vaihetta tarkastetaan authoroitu client. Luotuja salausavainpareja käyttäen Let's Encrypt tarkastaa usealla haasteella, että domain on clientin hallussa
+- toisessa vaiheessa tarkastetaan, voidaanko haasteet suorittaa useasta verkkonäkökulmasta
+- Tämän jälkeen olla valmiita antamaan sertifikaatti. Client rakentaa pyynnön (CSR) Let's Encryptille myöntää sertifikaatti. Let's Encrypt tarkastaa, että CSR:ssä ja domainissa käytetään authorisoituja selausavaimia. Jos kaikki tsekkaa sertifikaatti myönnetään.
+- Let's Encrypt jakaa tiedon sertifikaatista eteenpäin.
+- Sertikaatin poistossa tarvaitaan salausavainpari ja Let's Encrypt vahvistaa, että pyyntö on authorisoitu.
 
 The Apache Software Foundation 2025: Apache HTTP Server Version 2.4 [Official] Documentation: SSL/TLS Strong Encryption: How-To: (https://httpd.apache.org/docs/2.4/ssl/ssl_howto.html#configexample)  
 -  
