@@ -139,7 +139,36 @@ Vielä täytyi lisätä conf tiedosto a2ensite komennolla ja sitten Apache2 rest
 Lomake näkyy netissä ja salaamattomana.  
 ![kirjatumislomake nettisivulla](h6images/lomake-selaimessa.png)  
 
+Installoidaan ngrep  
+*sudo apt install ngrep* 
 
+![install ngrep](h6images/install-ngrep.png)  
+
+Kokeillaan lomake.bonakota.com käskyllä
+*ngrep lomake.bonakota.com*
+
+![kaapataan ngrep käyttäen liikennettä lomake.bonakota.com osoitteesta](h6images/ngrep-lomake.png)  
+
+Kun lataan sivun, sinne lähtee GET pyyntö nykyisestä osoitteestani, eli UpCloudin palvelimelta. 
+Kun painan Kirjaudu nappia huomaan POST pyynnön lähtevän eteenpäin ja vastauksena tulee 404 - The requested URL was not found on this server.  
+Tämä ei olekaan huomionarvoista, vaan se mitä POST pyynnön viimeisellä rivilä on - 
+username ja salasana. Kokeillaan vielä toisen kerran.  
+
+Syötän nämä tiedot nettiselaimen lomake.bonakotan.com  
+Käyttäjätunnus SALAINEN  
+salasana SALASANA  
+
+![lomake netissä](h6images/salasana.png)  
+
+Samaan aikaan ngrep:ssä  
+
+![mitä ngrep antaa](h6images/ngrep-salasana.png)  
+
+Katsotaan vielä suurennettuna, että käyttäjätunnus ja salasana lähetetään salaamattomana  
+
+![lähikuva osasta missä salasana ja käyttäjätunnus näkyvät](h6images/salainen-salasana.png)  
+
+Eli siis suojaamattomassa yhteydessä kaikki tiedot etenevät täysin suojaamattomana.
 
 
 # Lähteet 
