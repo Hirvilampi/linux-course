@@ -77,8 +77,7 @@ Mukana on lisää sivuja, jotka kertovat lisää tietoa. Tässä pieni näyte:
 ![safari ja ios joissa handshake ei toimi](h6images/handshake-no-2.png)  
 
 Huomaamme että sivulla ovat voimassa protokollat TLS 1.2 ja TLS 1.3.   
-On mielenkiintoista huomata myös, että monella handshake-simulaatio toimii, mutta Chrome 49 + window XP Service Pack 3 kokonaisuudessa ei toimi.  
-Myös Safarin muutamat versiot vanhoilla iOS käyttöjärjestelmillä, eivät onnistu handshake testissä. 
+On mielenkiintoista huomata myös, että monella handshake-simulaatio toimii, mutta Chrome 49 + window XP Service Pack 3 kokonaisuudessa ei toimi. Myös Safarin muutamat versiot vanhoilla iOS käyttöjärjestelmillä, eivät onnistu handshake testissä. 
 
 Kokeilen lisätä DNS CAA palvelimen tietoja, saisiko sillä tuota muutettua, seuraavilla DNS palvelun asetuksilla.  
 
@@ -94,17 +93,15 @@ Kokeilen mitä dig antaa komennolla
 
 ![dig caa bonakota toimii](h6images/dig-caa-bonakota.png)  
 
-Joskus CAA muutokset kestävät pitkiä aikoja, joten päätän kokeilla huomenna.  
+Dig kertoo, että CAA on näkyvillä, mutta SLS Labs:n testi antaa silti no. Lopetan tältä päivältä.  
 
-Seuraavan päivän SLS Labs ajo antaa DNS CAA ok tuloksen.
-
+Seuraavan päivän SLS Labs ajo antaa DNS CAA ok tuloksen.  
 
 ![sls caa bonakota toimii](h6images/sls-labs-caa-ok.png)  
 
-
-
-
-
+On näköjään tärkeä huomata, että joskus tietojen päivittymienn voi kestää pitkään.  
+Mietin myös, että olisi ollut hyödyllistä ajaa testi toisella koneella tai edes selaimella.  
+Voisiko kyseessä olla välimuistissa olevat tiedot, vaikka teinkin latauksen aina painamalla Clear Cache nappia SLS Labsssa.  
 
 
 ## c)
