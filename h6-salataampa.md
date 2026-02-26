@@ -118,7 +118,7 @@ Voisiko kyseessä olla välimuistissa olevat tiedot, vaikka teinkin latauksen ai
 
 Pyysin chatgtp:tä tekemään minulle html lomakkeen.
 
-![chatgtp pyyntö ja vastauksena tuleva html koodi](h6images/chatgtp-html-lomake.png)  
+![chatgtp pyyntö ja vastauksena tuleva html koodi](h6images/chtgp-html-lomake.png)  
 
 Lisäsin lomakkeen osoiteen nimipalvelimelle
 
