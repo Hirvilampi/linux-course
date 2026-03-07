@@ -1,4 +1,6 @@
-tehnyt Timo Lampinen, Linux Palvelimet kurssilla 2026
+Kirjoittanut Timo Lampinen
+Linux-palvelimet kurssi - ICI003AS2A-3016
+Tehtävä h7 sivulta: https://terokarvinen.com/linux-palvelimet/
 
 # TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN LINUXILLE
 
@@ -281,6 +283,7 @@ Oma sekoilu tuotti enemmän töitä, kun ajattelin. Lopulta KVM ohjelman asentam
 
 
 ## Lähteet
+Karvinen 2026:  https://terokarvinen.com/linux-palvelimet/  
 Virtualbox asentaminen: https://terokarvinen.com/2021/install-debian-on-virtualbox/
 Virtualbox asentaminen: 
 Virtualbox asentamisen ohjeet Linux Debianiin: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/
