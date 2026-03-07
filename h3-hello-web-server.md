@@ -168,7 +168,7 @@ Vielä kuva kaikista simuloiduista nimipalveluista auki samaan aikaan:
 
 
 ## Lähteet
-- Karvinen 2024: Linux-palvelimet kurssi: https://terokarvinen.com/linux-palvelimet/
+- Karvinen 2026:  https://terokarvinen.com/linux-palvelimet/  
 - Apache Software Foundation: Name-based Virtual Host Support: https://httpd.apache.org/docs/2.4/vhosts/name-based.html
 - Karvinen 2018: Name Based Virtual Hosts on Apache: https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/
 - Cloudlytics: Basics of Apache Logging: https://cloudlytics.com/basics-of-apache-logging-a-definitive-guide/
