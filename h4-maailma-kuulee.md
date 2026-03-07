@@ -133,7 +133,7 @@ Testi puhelimessa:
 
 ## Lähteet
 
-Karvinen: https://terokarvinen.com/linux-palvelimet/  
+Karvinen: https://terokarvinen.com/linux-palvelimet/   
 Lehto 2022: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/  
 Karvinen 2017: https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/  
 
