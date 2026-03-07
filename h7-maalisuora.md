@@ -62,17 +62,47 @@ Suoritetaan komento ja ajetaan ohjelma heic tässä kansiossa komennoilla:
 Huomaamme, että print komentomme lopussa ei ole rivinvaihtoa, joten komentokehoite tullee kirjoituksen perään.  
 Lisätään microlla rivinvaihto, joka toteutuu, kun laitetaan \n  printf komennon sisälle. 
 
-![koodin sisältö micro ohjelmassa](h7images/c-code-2.png)  
+![muokataan koodia](h7images/c-code-2.png)  
 
 Käännetään ohjelma ja ajetaan se:  
 *gcc heic-c -o heic*  
 *./heic*
 
-![koodin sisältö micro ohjelmassa](h7images/c-ajo-2.png)  
+![C tiedoston kääntäminen ohjelmaksi ja ajaminen](h7images/c-ajo-2.png)  
 
+Hienoa. Nyt ohjelma toimii kuten pitää.  
+
+Tehdään Hei maailma ohjelma käyttäen Go-kieltä. Itselleni tämä kieli on täysin tuntematon, joten etsin sopivan lähteen.  
+Lähde:   https://gobyexample.com/hello-world  
+Aletaan kirjoittamaan koodia komennolla  
+*micro hei-maailma.go*  
+
+![käynnistetään koodinkirjoittaminen](h7images/micro-go-1.png) 
+
+Kirjoitetaan ohjelma microlla  
+
+![kirjoitettu Go koodi](h7images/go-code-1.png) 
+
+Ajetaan ohjelma komennolla  
+*go run hei-maailma.go*  
+
+![Go tiedoston ajaminen](h7images/go-ajo-1.png) 
+
+Toimii. Käännetään seuraavaksi go ohjelmaksi ja ajetaan se  
+*go build hei-maailma.go*  
+*go build hei-maailma.go*  
+
+![Go tiedoston kääntäminen ohjelmaksi ja ajaminen](h7images/go-build-1.png) 
+
+Toimii. Hienoa.  
+
+## b) Lähdeviitteet. Tarkista ja tarvittaessa lisää lähdeviitteet kaikkiin raportteihisi
+
+Puutteita oli seuraavissa tehtävissä:  
 
 
 ## Lähteet 
 
 Karvinen:  https://terokarvinen.com/linux-palvelimet/  
-https://www.geeksforgeeks.org/c/c-hello-world-program/
+C-ohjelman lähde:  https://www.geeksforgeeks.org/c/c-hello-world-program/  
+Go-ohjelman lähde: https://gobyexample.com/hello-world  
