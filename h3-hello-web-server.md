@@ -24,6 +24,12 @@ Tehtävä h3 sivulta: https://terokarvinen.com/linux-palvelimet/
 
 ## a) testaa, että web palvelimesi vastaa localhost osoitteesta
 
+Palvelimen käyttöönotto ja oman sivun määrittelyä käytiin läpi tunnilla. Siinä tutuksi tulivat nämä komennot, joiden avulla sain oman web palvelimeni toimimaan locahost:ssa. Tästä ei oikein löytynyt hyvää lähdettä, joten tunnilla näytetty käsky kokoelma on siihen hyvä. Tälle tulee varmasti myöhemmin käyttöä.  
+
+![apachen käyttöönotto ja oman sivun määrittely](h1images/ohjeet_linux_palv_2701.png) 
+
+Noita noudattaen sain oman sivuni näkymään localhostissa:  
+
 ![localhost in web browser](h3images/localhosworks.png)  
 
 ## b) lokin rivit, kun avaat yhden sivun ja selitykset  
