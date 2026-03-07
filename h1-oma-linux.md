@@ -1,6 +1,6 @@
-Kirjoittanut Timo Lampinen
-Linux-palvelimet kurssi - ICI003AS2A-3016
-Tehtävä h7 sivulta: https://terokarvinen.com/linux-palvelimet/
+Kirjoittanut Timo Lampinen  
+Linux-palvelimet kurssi - ICI003AS2A-3016   
+Tehtävä h1 sivulta: https://terokarvinen.com/linux-palvelimet/  
 
 # TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN LINUXILLE
 
@@ -204,25 +204,29 @@ Jos ajurit ovat käytössä, rmmod voi kieltäytyä poistamasta moduuleja (täm�
 
 Lienee siis turvallista kokeilla tuota, koska KVM pyörii koko ajan taustalla. 
 Mutta ennen tuota kysyn myös ChatGTP5.2 mitä se tekisi kysymyksellä: 
-mikä virhe virtualbox:ssa: VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
+mikä virhe virtualbox:ssa: VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)  
 
-Tässä tuleekin pitempi ohje ja selkeämpi.. komento on eri: *sudo modprobe -r kvm_intel kvm*
-Nämä ohjeet ovat 6 selkään osaan ja alkaa noilla samoilla tarkistuksilla mikä on käynnissä.
+Chatgtp ehdottaa komentoa 
+*sudo modprobe -r kvm_intel kvm*  
 
-*timo@Usvamyrsky78:~$ sudo systemctl stop libvirtd
-sudo systemctl stop virtlogd
+Lisäksi ohjeet ovat jaettu kuuteen osaan.  ja alkaa noilla samoilla tarkistuksilla mikä on käynnissä.   
+
+timo@Usvamyrsky78:~$ *sudo systemctl stop libvirtd*
+*sudo systemctl stop virtlogd*
 [sudo] password for timo: 
 Stopping 'libvirtd.service', but its triggering units are still active:
 libvirtd.socket, libvirtd-ro.socket, libvirtd-admin.socket
 Stopping 'virtlogd.service', but its triggering units are still active:
 virtlogd.socket, virtlogd-admin.socket*
 
-hmmm. no jatketaan. Tämä poistaa KVM kernel moduulit: 
-sudo modprobe -r kvm_intel kvm
+hmmm. no jatketaan. Tämä poistaa KVM kernel moduulit:  
+*sudo modprobe -r kvm_intel kvm*  
 
-Ei tule mitään ilmoitusta.
-kokeilen: lsmod | grep kvm
-Vastauksena ei tule mitään, eli kyseiset moduulit eivät enää pyöri. Kokeilen tässä vaiheessa toimiiko virtuaalikone jo nyt.
+Ei tule mitään ilmoitusta. Tämä tarkoittaa, että toimii, koska virhe olisi tullut näkyviin.
+kokeilen:  
+*lsmod | grep kvm*  
+
+Vastauksena ei tule mitään, eli kyseiset moduulit eivät enää pyöri. Kokeilen tässä vaiheessa toimiiko virtuaalikone jo nyt.  
 Käynnistyi. Hienoa
 
 ![virtual machine started](./h1images/virtualmachine-started.png)
@@ -232,42 +236,46 @@ Toisaalta voisin kai poistaa kvm: myös. Tässä kuitenkin ohjeet kvm:n käynnis
 
 Blacklistaus:
 
-sudo nano /etc/modprobe.d/blacklist-kvm.comf
+*sudo nano /etc/modprobe.d/blacklist-kvm.comf*
 
-blacklist kvm
-blacklist kvm_intel
+*blacklist kvm*  
+*blacklist kvm_intel*  
 
-rebootin jälkeen tarkistus:
+rebootin jälkeen tarkistus:  
 
-lsmod | grep kvm
+*lsmod | grep kvm*  
 
-17.07 Ehkä tämä olisi järkevintä kokeilla nyt. Reboottaan koneen.
+17.07 Ehkä tämä olisi järkevintä kokeilla nyt. Reboottaan koneen.  
 
-17:23 kyllähän ne vielä näkyvät tuolla. -- jatkan virtualboxin asennusta ja palaan tähän myöhemmin
+17:23 kyllähän ne vielä näkyvät tuolla. -- jatkan virtualboxin asennusta ja palaan tähän myöhemmin  
 
-TimoLampinenVM[Running] - Oracle VirtualBox
-Toimii ja ulkopuoliset sivut latauvat we browserissa.
+TimoLampinenVM[Running] - Oracle VirtualBox  
+Toimii ja ulkopuoliset sivut latauvat we browserissa.  
 
-17:30 sitten itse installoinnin kimppuun
-17:37 perustiedot laitettu ja nyt kone alkoi tekemään töitään
-17:43 asennus on valmistunut jossain välissä
-reboot
-17:44 pelkkä taustakuva näkyy edelleen
-17:44 nythän se vasta käynnistyi uudestaan
-17:45 First Login - salasana pelittää ja pääsin sisään
-17:46 käynnistetään web selain
-17:47 oma portfolio-sivu aukeaa
-17:48 sitten terminaali auki 
-17:49 sudo apt-get update - toimii ja hakee päivitykset (19 kappaletta)
-17:49 sudo apt-get -y install ufw - tehty
-17:50 sudo ufw enable - firewall is active and enabled.. 
-17:51 restart
-17:52 kaikkihan näyttää pelittävän
-17:56 virtualbox guest additions.. kai tämä on tarkoitus asentaa
+17:30 sitten itse installoinnin kimppuun  
+17:37 perustiedot laitettu ja nyt kone alkoi tekemään töitään  
+17:43 asennus on valmistunut jossain välissä  
+reboot  
+17:44 pelkkä taustakuva näkyy edelleen  
+17:44 nythän se vasta käynnistyi uudestaan  
+17:45 First Login - salasana pelittää ja pääsin sisään  
+17:46 käynnistetään web selain  
+17:47 oma portfolio-sivu aukeaa  
+17:48 sitten terminaali auki   
+17:49 *sudo apt-get update* - toimii ja hakee päivitykset (19 kappaletta)  
+17:49 *sudo apt-get -y install ufw* - tehty  
+17:50 *sudo ufw enable* - firewall is active and enabled..  
+17:51 restart  
+17:52 kaikki toimii    
+17:56 virtualbox guest additions.. kai tämä on tarkoitus asentaa  
 ![virtualbox guest additions](./h1images/vboxgas_star.png)
-18:00 asennettu ohjeiden mukaan, ei virheitä, ei myöskään sudo bash VBoxLinuxAdditions.run käytettäessä
+
+18:00 asennettu ohjeiden mukaan, ei virheitä, ei myöskään sudo bash VBoxLinuxAdditions.run käytettäessä  
+
 ![virtualbox gues additions installing in terminal](./h1images/vboxgas_install.png)
-18:02 uudelleen käynnistys ja snapshot
+
+18:02 uudelleen käynnistys ja snapshot  
+
 ![snapshot1](./h1images/snapshot1.png)
 
 
