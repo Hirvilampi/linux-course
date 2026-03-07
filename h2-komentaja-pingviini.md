@@ -1,16 +1,18 @@
-tehnyt Timo Lampinen, 2026, Linux palvelimet kurssi 
+Kirjoittanut Timo Lampinen 2026  
+Linux-palvelimet kurssi - ICI003AS2A-3016  
+Tehtävä h2 sivulta: https://terokarvinen.com/linux-palvelimet/  
 
-*Huomio tätä kannattaa silloin tällöin commitoida - varsinkin, jos tekee selaimessa, ettei kaikki häviä kun sulkee välilehden*
+*Huomio tätä kannattaa silloin tällöin commitoida - varsinkin, jos tekee selaimessa, ettei kaikki häviä kun sulkee välilehden*  
 
   
 # Tehtävä: h2 Komentaja Pingviini
 
-https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini
+osoitteessa:  https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini  
   
   
 ## x) Tiivistä - https://terokarvinen.com/2020/command-line-basics-revisited/
 
-Tehtävä oli käydä läpi https://terokarvinen.com/2020/command-line-basics-revisited/ ja lisätä tähän liittyen jokin kysymys, idea tai huomio.
+Tehtävä oli käydä läpi https://terokarvinen.com/2020/command-line-basics-revisited/ ja lisätä tähän liittyen jokin kysymys, idea tai huomio.  
 
 - uusia asia oli, että montaa kansiota voi luoda yhdellä komennolla
 - mv komento oli myös uusi
@@ -20,34 +22,34 @@ Tehtävä oli käydä läpi https://terokarvinen.com/2020/command-line-basics-re
   
 ## a) Asenna Micro
 
-Micron asennus kuvassa:
+Micron asennus kuvassa:  
 
 ![asenna micro sudo apt-get install micro](./h2images/micro-asennus.png)
   
   
-## b) Asenna kolme itsellesi uutta komentoriviohjelmaa
+## b) Asenna kolme itsellesi uutta komentoriviohjelmaa  
 
 Etsin erilaisia ohjelmia ja löysin nämä:  
 rolldice - nopanheitto ohjelma  
 fd - kätevämpi kuulema kuin find  
 fzf - sumealla logiikalla toimiva etsintä ohjelma, jolloin kaiken ei tarvitse olla täysin oikein kirjoitettu  
 
-asennus:
-sudo apt-get -y install rolldice fd fzf
+asennus:  
+*sudo apt-get -y install rolldice fd fzf*  
 
-![kuva kolmen ohjelman asennuksesta](./h2images/apt-get-install-3-programs.png)
+![kuva kolmen ohjelman asennuksesta](./h2images/apt-get-install-3-programs.png)  
 
-fd ei asentunut, koska sitä ei löydy.
-
-Tarkastetaan apt-cachesta grep käskyä hyödyntäen onko fd ohjelmaa olemassa
-
-![apt-cachen search fd | grep "find"](./h2images/apt-cache-search-fd-etc.png)
-
-Sen nimi on ilmeisesti (tai ainakin asennuspaketin nimi on fd-find)
-
-asennetaan
-![fd-find asennus](./h2images/install-fd-find.png)
+fd ei asentunut, koska sitä ei löydy.  
   
+Tarkastetaan apt-cachesta grep käskyä hyödyntäen onko fd ohjelmaa olemassa  
+
+![apt-cachen search fd | grep "find"](./h2images/apt-cache-search-fd-etc.png)  
+
+Sen nimi on ilmeisesti (tai ainakin asennuspaketin nimi on fd-find)  
+
+asennetaan  
+![fd-find asennus](./h2images/install-fd-find.png)  
+   
   
 ## c) FHS - esittele tärkeät kansiot 
   
@@ -70,8 +72,8 @@ Tämä on tärkeä, koska tämä on ainoa paikka, jonne hirvilampi voi tallentaa
   
 ### /etc/ 
 
-Kaikki järjestelmän asetukset tiedostoina.
-Tässä katsomme cat käskyllä tiedoston timezone sisällön. 
+Kaikki järjestelmän asetukset tiedostoina.  
+Tässä katsomme cat käskyllä tiedoston timezone sisällön.  
 
 ![esimerkki etc kansion tiedoston sisällöstä](./h2images/etc-example.png)
 
@@ -80,16 +82,16 @@ Sisältö viittaa vahvasti siihen, että tämän tiedoston sisältö: *Europe/He
   
 ## d) The Friendly M - esimerkkejä grep komennon käytöstä  
 
-etsitään tietoa kissa kissa.md tiedostosta komennolla:  
-grep "kissa" kissa.md  
+etsitään tietoa kissa kissa.md tiedostosta komennolla:   
+grep "kissa" kissa.md   
 
 ![find |grep kissa --color](./h2images/grep-kissa-kissa-md.png)  
 
-tässä jo aiemmin käytetty, kun fd ohjelmaa yritettiin etsia apt-cachesta. Oli hyvin todennäköistä, että kuvauksesta löytyisi myös find.  
+tässä jo aiemmin käytetty, kun fd ohjelmaa yritettiin etsia apt-cachesta. Oli hyvin todennäköistä, että kuvauksesta löytyisi myös find.   
 
 ![apt-cachen search fd | grep "find"](./h2images/apt-cache-search-fd-etc.png)
 
-etsitään viikonpäivien alta kaikki tiedostot missä mainittu kissa ja toisella kertaa merkataan se eri väriseksi  
+etsitään viikonpäivien alta kaikki tiedostot missä mainittu kissa ja toisella kertaa merkataan se eri väriseksi   
 
 ![find |grep kissa --color](./h2images/grep-kissa-ja-kissa-color.png)  
 
@@ -98,7 +100,7 @@ etsitään viikonpäivien alta kaikki tiedostot missä mainittu kissa ja toisell
 ## e) Esimerkki putkista, pipe
 
 etsitään historiasta montako kertaa käytin nanoa komennolla:  
-history |grep nano
+*history |grep nano*  
 
 ![komento history |grep nano](./h2images/history-pipe.png)
 
@@ -108,13 +110,13 @@ Mielenkiintoista huomata, että myös viimeisin jolla kutsuttiin komentoa, näky
 
 ## f) Listaa testaamasi koneen rauta
 
-ajetaan  
-sudo lshw -short -sanitize  
-vastaus  
-*sudo: lshw: command not found*
+ajetaan   
+*sudo lshw -short -sanitize*   
+vastaus   
+*sudo: lshw: command not found*  
 
-täytyy siis asentaa lshw komennolla:
-sudo apt-get install lshw
+täytyy siis asentaa lshw komennolla:  
+*sudo apt-get install lshw*  
 asennus onnistui
 
 ![lshw installointi](./h2images/lshw-install.png)
@@ -138,16 +140,16 @@ Siellä on myös romppuasemaa ja muuta, mutta erikoisinta on nämä pienet erot 
 ## g) Tulkitse muutama rivi lokeista (vapaaehtoinen)
 
 kokeillaan:  
-journalctl -f |nl
+*journalctl -f |nl*  
 
 ![journalctl-f |nl tuloste](./h2images/journalctl.png)
 
 
 Tulkinta ja anlyysi:  
 
-rivi 4 - olen yrittänyt ajaa sudo komentoa "lshw -short -sanitize", mutta olen antanut väärän salasanan
+rivi 4 - olen yrittänyt ajaa sudo komentoa "lshw -short -sanitize", mutta olen antanut väärän salasanan  
 
-rivi 5 - olen asentanut sudo apt-get install komennolla lshw ohjelman
+rivi 5 - olen asentanut sudo apt-get install komennolla lshw ohjelman  
 
 journalctl -f antaa jonkinlaisen typistetymmän lokin, koska tässä ei kaikki komennot mitä virtualboxin aikana on tehty.   
 Kokeilin pelkkää journal |nl käskyä ja sain yli 600 riviä lokeja.  
@@ -157,26 +159,26 @@ Kokeilin pelkkää journal |nl käskyä ja sain yli 600 riviä lokeja.
 
 Voisin kokeilla vaikka tuota paletteroa, vaikka en tiedä mikä se on.  
 kokeilen:  
-sudo apt-get install palettero  
+*sudo apt-get install palettero*  
 E: Unable to locate package palettero  
 
-Haen googlesta hakusanalla: how to install palettero on linux 
+Haen googlesta hakusanalla: how to install palettero on linux  
 ja katson toista hakutulosta, koska ensimmäinen on Teron. https://micro-editor.github.io/plugins.html  
 Valitsen palettero 0.0.5 ja taitaakin olla niin, että tämä on Teron kirjoittama lisäys.  
-Paletteron saa asennettua komennolla  
-micro -plugin install palettero
 
-kokeilen  
+Paletteron asennus komennolla  
+*micro -plugin install palettero*  
+
 
 ![micro -plugin install palettero ja install onnistuu](./h2images/micro-palettero.png)
 
-hienosti installoitui.
-Onko tässä mitään uutta. Olen aukaissut tämän kerran aiemmin, joten hankala huomata uusia ominaisuuksia.
+hienosti installoitui.  
+Onko tässä mitään uutta. Olen aukaissut tämän kerran aiemmin, joten hankala huomata uusia ominaisuuksia.  
 
 ![micro auki palette asennettuna](./h2images/palettero.png)
 
 En suoraan huomaa mitään.. joten asennan micron omaan Debianiin. Omassa Microssa ei ole ylävalikkoa: File, Edit, View jne.  
-Aa.. mutta se on tämän terminaalin valikko, ei mitään tekemistä micron kanssa.
+Aa.. mutta se on tämän terminaalin valikko, ei mitään tekemistä micron kanssa.  
 Tuolla plugins sivulla: https://micro-editor.github.io/plugins.html  
 Sanotaan, että Command palette Ctrl-P - fuzzy search commands and textfilters   
 Kokeilen Ctrl-p - ruudussa vilahtaa nopeasti jotain, mistä ei ehdi saamaan selvää.  
@@ -184,6 +186,7 @@ Palettero jää nyt minulle mysteeriksi.
 
 ## Lähteet
 
+Karvinen 2026:  https://terokarvinen.com/linux-palvelimet/  
 Tehtäväsivu: https://terokarvinen.com/linux-palvelimet/#h2-komentaja-pingviini     
 Command Line Basics Revisited: https://terokarvinen.com/2020/command-line-basics-revisited/
 google search: "how to install palettero on linux"
