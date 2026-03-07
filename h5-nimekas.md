@@ -6,8 +6,7 @@ Tehtävä h5 sivulta: https://terokarvinen.com/linux-palvelimet/
 
 ## a) Nimi. Laita julkinen nimi osoittamaan omaan koneeseesi.  
   
-Hankin nimen bonakota.com NameCheapin kautta. Nimeksi valitsin tuon, koska teen yhtä projektia tuolla  
-nimellä.  
+Hankin nimen bonakota.com NameCheapin kautta. Nimeksi valitsin tuon, koska teen yhtä projektia tuolla nimellä.  
 
 ![namecheap bonakota.com](h5images/bonakota.png)  
   
@@ -49,7 +48,7 @@ Lisäksi kokeilin www.bonakota.com ja se toimii myös.
 ### A-tietueen alidomain 
 
 Tein uuden alidomainin domain list:n kautta bonakota.com Namecheapin kautta. 
-Tämä tehtävän mukaisesti A Record:a käyttäen.  Uuden alidomainin nimi on try.bonakota.com
+Tämä tehtävän mukaisesti A Record:a käyttäen. Uuden alidomainin nimi on try.bonakota.com
 
 ![Added A Record try.bonakota.com on 185.20.138.164 on DNS HOST records](h5images/bonakota-try.png) 
 
@@ -106,7 +105,7 @@ koska se osoittaa omaan hakemistoon. Mikäli try.bonakota.com osoittaisi samaan 
 bonakota.com, silloin se voisi olla määritelty ServerAliaksena. Tämä käy järkeen, sillä ServerName ja
 ServerAlias on osoitettava samaan polkuun.  
 Päättelyn lisäksi on löysin saman tiedon myös Apachen dokumentaatiosta:  
-https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
+https://httpd.apache.org/docs/current/vhosts/name-based.html
 
 Mielenkiinoinen yksityiskohta.  Debian ympäristössä Apache lukee .conf tiedostot aakkosjärjestyksessä, 
 joten jos aiemmin aakkosjärjestyksessä olevasta lokista löytyy etsintään kelpaava vastaus, se käytetään  
@@ -269,10 +268,14 @@ Osion alussa mainittu lähde on erinomainen tähän.
 
 ## Lähteet  
 
+Karvinen 2026: https://terokarvinen.com/linux-palvelimet/  
 EksisONE – Apache2 ja alidomain 2012: https://www.eksis.one/artikkelit/apache2/apache2-ja-alidomain/  
-Apache HTTP Server Documentation: https://httpd.apache.org/docs/current/vhosts/name-based.html?utm_source=chatgpt.com
+Apache HTTP Server Documentation: https://httpd.apache.org/docs/current/vhosts/name-based.html  
 DNS Made Easy – CNAME Records Explained: https://dnsmadeeasy.com/resources/cname-records-explained  
-PhoenixNAP – Linux host command: https://phoenixnap.com/kb/linux-host   
-PhoenixNAP – Linux dig command examples: https://www.hacktress.com/what-is-host/   
 AvenaCloud – Using dig and host commands for DNS troubleshooting: https://avenacloud.com/blog/using-dig-and-host-commands-for-dns-troubleshooting/#   
+PhoenixNAP – Linux host command: https://phoenixnap.com/kb/linux-host   
+Hacktrees - host command: https://www.hacktress.com/what-is-host/   
+PhoenixNAP – Linux dig command examples : https://phoenixnap.com/kb/linux-dig-command-examples  
+
+  
 
