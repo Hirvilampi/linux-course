@@ -10,6 +10,10 @@ Tehtävä h1 sivulta: https://terokarvinen.com/linux-palvelimet/
 
  ## Virtualboxin asentaminen
 
+En löytänyt VirtualBoxia suoraan, joten asensin ensin Debianin KVM ja Virtual Machine Managerin, joilla voi myös tehdä virtuaalipalvelimen. 
+Jos haluat lukea harharetken ja vasta sitten lukea Virtualboxin asentamisen jatka lukemista..  
+Tai sitten [Mene suoraan VirtualBoxin asennukseen](#asennetaan-virtualbox)  
+
  15:30
  Seurasin ohjeita ja selvisi, että Debian 13 mukana ei tule oletuksena Virtualboxia. 
  Yritin seurata Oraclen sivun ohjeita, mutta tämähän meni monimutkaiseksi..
@@ -22,7 +26,7 @@ Tehtävä h1 sivulta: https://terokarvinen.com/linux-palvelimet/
 Kokeilen asentaa KVM + virt-managerin. Debian 12 asennus toiseksi olisi varmaan helpompaa, mutta ehkäpä
 tämä opettaa enemmän. Katsotaan miten käy. Kysyn ChatGTP:ltä ohjeet asennukseen. 
 ### huom! Myöhemmin asennan Virtuaboxin Debianiin, koska sekin kyllä onnistuu
-[Mene suoraan VirtualBoxin asennukseen](#Asennetaan-virtualbox)
+
 
 ## KVM ja Virtual Machine Manager asennus
 
@@ -95,7 +99,8 @@ En tänään torstaina kuluta enempää aikaa, jos joudunkin asentamaan vielä d
 
 
 
-## Asennetaan virtualbox 
+## Asennetaan virtualbox  
+
 18:17 -> kokeilen uusia ohjeita: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/
 tähän pari kuvaa 
 
