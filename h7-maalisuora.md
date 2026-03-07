@@ -98,11 +98,18 @@ Toimii. Hienoa.
 
 ## b) Lähdeviitteet. Tarkista ja tarvittaessa lisää lähdeviitteet kaikkiin raportteihisi
 
-Puutteita oli seuraavissa tehtävissä:  
+Puutteet korjattu 
+
+## c) Laita Linuxiin uusi, itse tekemäsi komento niin, että kaikki käyttäjät voivat ajaa sitä.  
+
+KESKEN - tais tehty, mutta täytyy dokumentoidata
+
+## d) Ratkaise vanha arvioitava laboratorioharjoitus soveltuvin osin.  
+
 
 
 ## Lähteet 
 
-Karvinen:  https://terokarvinen.com/linux-palvelimet/  
+Karvinen 2026:  https://terokarvinen.com/linux-palvelimet/  
 C-ohjelman lähde:  https://www.geeksforgeeks.org/c/c-hello-world-program/  
 Go-ohjelman lähde: https://gobyexample.com/hello-world  
