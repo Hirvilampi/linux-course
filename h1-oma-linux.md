@@ -284,13 +284,13 @@ Oma sekoilu tuotti enemmän töitä, kun ajattelin. Lopulta KVM ohjelman asentam
 
 ## Lähteet
 Karvinen 2026:  https://terokarvinen.com/linux-palvelimet/  
-Virtualbox asentaminen: https://terokarvinen.com/2021/install-debian-on-virtualbox/
-Virtualbox asentaminen: 
-Virtualbox asentamisen ohjeet Linux Debianiin: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/
-Foorumilta VirtualBox käynnistymisen ongelmiin: https://forums.virtualbox.org/viewtopic.php?t=50517
-Foorumilta VirtualBox käynnistymisen ongelmiin: https://avz.org.ua/wp/2025/04/25/virtualbox-virtual-machine-not-started-with-verr_vmx_in_vmx_root_mode-error/
-ChatGTP5.2 kysymys: onko tämä turvallinen koodi ajaa debian trixie linuxissa: sudo rmmod kvm_intel kvm
-ChatGTP5.2 kysymys: mikä virhe virtualbox:ssa: VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)
+Virtualbox asentaminen: https://terokarvinen.com/2021/install-debian-on-virtualbox/  
+Virtualbox asentaminen:   
+Virtualbox asentamisen ohjeet Linux Debianiin: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/  
+Foorumilta VirtualBox käynnistymisen ongelmiin: https://forums.virtualbox.org/viewtopic.php?t=50517  
+Foorumilta VirtualBox käynnistymisen ongelmiin: https://avz.org.ua/wp/2025/04/25/virtualbox-virtual-machine-not-started-with-verr_vmx_in_vmx_root_mode-error/  
+ChatGTP5.2 kysymys: onko tämä turvallinen koodi ajaa debian trixie linuxissa: sudo rmmod kvm_intel kvm  
+ChatGTP5.2 kysymys: mikä virhe virtualbox:ssa: VT-x is being used by another hypervisor (VERR_VMX_IN_VMX_ROOT_MODE)  
 
 
 20.1.2026 lisätty tekijä ekalle riville. Sekä muokattu otsikkoa.
