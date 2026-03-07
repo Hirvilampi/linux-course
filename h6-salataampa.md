@@ -28,15 +28,15 @@ Kirjaudun ensin sisään palvelimelle  ja varmistetaan, että daemon apache2 on 
 ![ssh ja update toimivat](h6images/ssh-update.png)  
   
 
-Tarkastetaan web-sivun näkyvyys lataamalla bonakota.com.
-Toimii tällä koneella, sekä toisella koneella. 
+Tarkastetaan web-sivun näkyvyys lataamalla bonakota.com.  
+Toimii tällä koneella, sekä toisella koneella.   
 
 ![http://bonakota.com latautuu](h6images/bonakota-works.png)  
 
 Ensin update palvelimen ohjelmistolle  
 *sudo apt-get update*  
 
-Asennan palvelimelle certbot:n, python3-certbot, python3-certbot-apache
+Asennan palvelimelle certbot:n, python3-certbot, python3-certbot-apache  
 *sudo apt install certbot*  
 *sudo apt install python3-certbot*  
 *sudo apt install python3-certbot-apache*  
@@ -88,13 +88,14 @@ Raportissa on useampi sivu, jotka kertovat lisää tietoa. Tässä pieni näyte:
 Huomaamme että sivulla ovat voimassa protokollat TLS 1.2 ja TLS 1.3.   
 On mielenkiintoista huomata myös, että monella handshake-simulaatio toimii, mutta Chrome 49 + window XP Service Pack 3 kokonaisuudessa ei toimi. Myös Safarin muutamat versiot vanhoilla iOS käyttöjärjestelmillä, eivät onnistu handshake testissä. 
 
-Tuo DNS CAA jäi mietityttämään. Niinpä aloin lukemaan löytyisikö Giang:n ratkaisusta jotain apua.  https://github.com/gianglex/Courses/blob/main/Linux-Palvelimet/h6-salataampa.md
+Tuo DNS CAA jäi mietityttämään. Niinpä aloin lukemaan löytyisikö Giang:n ratkaisusta jotain apua.  
+https://github.com/gianglex/Courses/blob/main/Linux-Palvelimet/h6-salataampa.md  
 
-Kokeilen lisätä DNS CAA palvelimen tietoja nimipalvelimelle, saisiko sillä muutettua DNS CAA arvoa.
+Kokeilen lisätä DNS CAA palvelimen tietoja nimipalvelimelle, saisiko sillä muutettua DNS CAA arvoa.  
 
 ![DNS CAA settings issuewild](h6images/caa-issuewild.png)  
 
-Katsotaan mikä on tulos SLS Labs:n testissä
+Katsotaan mikä on tulos SLS Labs:n testissä  
 
 ![DNS CAA no on SLS Labs](h6images/sls-dns-caa-no.png)  
 
@@ -116,36 +117,39 @@ Voisiko kyseessä olla välimuistissa olevat tiedot, vaikka teinkin latauksen ai
 
 # c) Vapaaehtoinen. Web-kirjautumislomake ja tarkkaile tietoa
 
-Pyysin chatgtp:tä tekemään minulle html lomakkeen.
+Pyysin chatgtp:tä tekemään minulle html lomakkeen.  
 
 ![chatgtp pyyntö ja vastauksena tuleva html koodi](h6images/chtgp-html-lomake.png)  
 
-Lisäsin lomakkeen osoiteen nimipalvelimelle
+Lisäsin lomakkeen osoiteen nimipalvelimelle  
 
 ![namecheap dns a-tietue lomake.bonakota.com](h6images/dns-lomake.png)  
 
-Siirryin palvelimelle ja tein kansion lomakkeelle, sekä nanolla index.html:n mihin sijoitin html:tekstin.
+Siirryin palvelimelle ja tein kansion lomakkeelle, sekä nanolla index.html:n mihin sijoitin html:tekstin.  
 
 ![palvelimella ja siellä hakemiston ja index.html luominen](h6images/hakemiston-html-luominen.png)  
 ![index.html nanossa](h6images/index-html-nano.png)  
 
-Siirryin tekemään lomakkeelle conf tiedoston
+Siirryin tekemään lomakkeelle conf tiedoston  
+
 ![luodaan conf lomake oikeaan paikkaan](h6images/lomake-conf-luominen.png)  
 
 Enhän minä muistanut sisältöä. Joten cat-komento käyttöön ja mallin avulla sain suht nopeasti sen valmiiksi.  
-Vielä täytyi lisätä conf tiedosto a2ensite komennolla ja sitten Apache2 restart.
-![conf:n luominen ja site näkymisen mahdollistaminen](h6images/chatgtp-html-lomake.png)  
+Vielä täytyi lisätä conf tiedosto a2ensite komennolla ja sitten Apache2 restart.  
+
+![conf:n luominen ja site näkymisen mahdollistaminen](h6images/chtgtp-html-lomake.png)  
 
 Lomake näkyy netissä ja salaamattomana.  
+
 ![kirjatumislomake nettisivulla](h6images/lomake-selaimessa.png)  
 
 Installoidaan ngrep  
-*sudo apt install ngrep* 
+*sudo apt install ngrep*  
 
 ![install ngrep](h6images/install-ngrep.png)  
 
-Kokeillaan lomake.bonakota.com käskyllä
-*ngrep lomake.bonakota.com*
+Kokeillaan lomake.bonakota.com käskyllä  
+*ngrep lomake.bonakota.com*  
 
 ![kaapataan ngrep käyttäen liikennettä lomake.bonakota.com osoitteesta](h6images/ngrep-lomake.png)  
 
@@ -160,7 +164,7 @@ salasana SALASANA
 
 ![lomake netissä](h6images/salasana.png)  
 
-Samaan aikaan ngrep:ssä - kiinnitä huomiota POST viimeiselle riville. 
+Samaan aikaan ngrep:ssä - kiinnitä huomiota POST viimeiselle riville.  
 
 ![mitä ngrep antaa](h6images/ngrep-salasana.png)  
 
@@ -168,7 +172,7 @@ Katsotaan vielä suurennettuna, että käyttäjätunnus ja salasana lähetetää
 
 ![lähikuva osasta missä salasana ja käyttäjätunnus näkyvät](h6images/salainen-salasana.png)  
 
-Eli siis suojaamattomassa yhteydessä kaikki tiedot etenevät täysin suojaamattomana.
+Eli siis suojaamattomassa yhteydessä kaikki tiedot etenevät täysin suojaamattomana. 
 
 
 # Lähteet 
