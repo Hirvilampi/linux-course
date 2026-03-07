@@ -12,7 +12,8 @@ Tehtävä h1 sivulta: https://terokarvinen.com/linux-palvelimet/
 
 En löytänyt VirtualBoxia suoraan, joten asensin ensin Debianin KVM ja Virtual Machine Managerin, joilla voi myös tehdä virtuaalipalvelimen. 
 Jos haluat lukea harharetken ja vasta sitten lukea Virtualboxin asentamisen jatka lukemista..  
-Tai sitten [Mene suoraan VirtualBoxin asennukseen](#asennetaan-virtualbox)  
+Tai sitten [klikkaa tästä ja mene suoraan VirtualBoxin asennukseen](#asennetaan-virtualbox)  
+
 
  15:30
  Seurasin ohjeita ja selvisi, että Debian 13 mukana ei tule oletuksena Virtualboxia. 
