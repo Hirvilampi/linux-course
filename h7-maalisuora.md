@@ -247,6 +247,151 @@ Lähde https://www.geeksforgeeks.org/linux-unix/dstat-command-in-linux-with-exam
 asennus  
 *sudo apt install dstat*  
 
+katsotaan mitkä ohjelmat käyttävät eniten prosessoria kommennolla  
+*dstat -c --top-cpu*  
+
+![dstat -c --top-cpu käynnistyvä prosessoriajan käyttö](h7images/dstat-top.png)  
+
+ensimmäiset viisi kertovat montako prosenttia prosessorin käytöstä on milläkin.
+esim: katsotaan alhaalla olevaa riviä, jossa mainitaan sshd-session käytössä olevanap prosessina 
+- usr 1, CPU:sta 1% käyttäjän käytössä
+- sys 1, CPU:sta 1% järjestelmän käytössä
+- idl 99, 99% ajasta CPU odottaa kuormaa
+- wai 0, 0% ajasta CPU odottaa I/O:ta
+- stl 0, 0% ajasta on käytössä virtuaalikoneissa (steal)
+- cpu process sshd-session 1.0 näyttää CPU prosessin nimen ja 1.0 on prosessin ID
+
+Prosessorilla voi olla käytössä vain 100%. Nyt yhteenlaskettu kuorma on 101%. Miten tämä on mahdollista?  
+Kyseessä on varmasti hyvin harvinainen pyöristysvirhe, jossa esimerkiksi sys arvo on oikesti 0,5% ja usr arvo on 98,5%.  
+Molemmat näytetää kuitenkin ilman desimaaleja ja tässä harvinaisessa tapauksessa molemmat pyöristetään ylöspäin.  
+Tätä tukevat myös huomiot, että jossain kohti yhteenlaskettu summa on alle 100%, kuten 99 tai 98 prosenttia. Tämä on täysin mahdollista kun otetaan huomioon pyöristykseen liittyvät säännöt.  
+  
+ajetaan samalla 
+*stress -c 8 timeout 10*  
+
+tulokset dstat  
+
+![dstat stress aikana](h7images/dstat-top-2.png)  
+
+huomaamme stress prosessin aiheuttavan kuorman ja vievän kaiken prosessoritehon.
+
+### e)  ss --listening --tcp --numeric; ss --listening --tcp; ss --tcp; ss --listening --udp; ss --listening --udp;
+
+ss (Socket Statistics) komennolla voidaan tarkastella network socket tilaa Linux järjestelmässä.
+
+Tutustuin ss komentoon seuraavassa lähteessä.
+Lähde: https://www.geeksforgeeks.org/linux-unix/ss-command-in-linux/
+
+SS komento toimi heti, joten sen asennusta en alkanut selvittämään.  
+
+*ss --listening --tcp --numeric; ss --listening --tcp; ss --tcp; ss --listening --udp; ss --listening --u*
+
+![ss kaikki](h7images/ss.png)  
+
+selvitellään eroja.. 
+ss --listening --tcp --numeric; ja  ss --listening --tcp; erot:
+
+
+![ss ](h7images/ss-l-num-tcp.png)  
+
+Erona on Local Adddress:Port kohdan Port arvot.  
+ss --listening --tcp --numeric; <- Port arvot ovat numeraalisia, kuten *:433  
+ss --listening --tcp; <- Port arvot ovat kirjoitettu, kun sellaiset arvot löytyvät, eli *:433 on muodossa *:https  
+Yhteistä on se, että tässä State on LISTEN, joka kertoo, että palvelu odottaa yhteyttä ja portissa 443 odotellaan https yhteyttä.  Peer Adress on tyhjä tai 0.0.0.0, koska mistään ei olla yhteydessä.
+
+
+*ss --tcp*  
+
+![ss ](h7images/ss-tcp.png)   
+
+Nyt emme vain kuuntele
+
+State on nyt ESTAB, joka kertoo, että yhteys on luotu.  
+Local Address:Port 185.20.138.164:ssh, kertoo että IP-osoitteeseen 185:20.138.164 on luotu ssh yhteys  
+Peer Address:Port 91.154.195.208:45160, kertoo mistä kohteesta ollaan yhteydessä ja mihin porttiin. Tuossa tosiaan näkyy minun kotini ip-osoite, mistä ssh yhteys on tehty. Tuossa on varmasti kaksi porttia sen vuoksi, että minulla on kaksi ssh-yhteyttä auki. 
+State SYN-RECV tarkoittaa, että yhteyden muodostus on kesken.  
+
+
+*ss --listening --udp*  
+
+![ss ](h7images/ss-udp-1.png) 
+
+näyttää kuuntelevat upd socketit. State on UNCONN, koska upd ei muodosta pysyviä yhteyksiä. 
+Komento voidaan antaa myös muodossa: *ss -ul*  
+
+![ss ](h7images/ss-ul.png) 
+
+*ss --listening --udp*  
+
+![ss ](h7images/ss-udp-2.png)  
+
+Vastaus on sama kuin ylemmässä, koska komento on myöskin sama.  
+
+### f) grep -i error /var/log/syslog; grep -ir error /var/log/  
+
+Katsotaan ensin grep komennon käyttö näissä esimerkeissä. Lähde: https://www.hostinger.com/tutorials/grep-command-in-linux?utm_campaign=Generic-Tutorials-DSA-t1|NT:Se|LO:Other-EU&utm_medium=ppc&gad_source=1&gad_campaignid=12231291749&gclid=Cj0KCQiA2bTNBhDjARIsAK89wlFuNVhD1yJl1dEhiursCQ18MtUfMuniPmsr5wBB-ZX6Rqhabv0LF_gaAjsaEALw_wcB
+
+Grep syntaksi on:  
+*grep [options] pattern [FILE]* 
+
+-i määrittelee, että etsittävässä sanassa ei huomioida isoja tai pieniä kirjaimia
+-r määrittelee, että etsitään rekursiivisesti myös alihakemistoista  
+-ir peräkkäin, sisältää molemmat optiot i ja r
+- error on pattern, eli etsitään sanaa error
+- /var/log/ on polku, jonka alla olevista tiedostoita etsitään näitä tietoja 
+
+
+*grep -i error /var/log/syslog*  
+
+![grep syslog tyhjä](h7images/grep-syslog.png)  
+
+Tyhjä. Missään tiedostossa ei ole error tekstiä.  
+  
+*grep -ir error /var/log/* 
+
+![grep log tulostaa paljon tietoa ](h7images/grep-log-1.png)  
+
+Tässä näemme vain alun ja huomio kiinnittyy epäonnistuneisiin yrityksiin päästä sisälle.   
+Siellä on selkeästi yritetty päästä sisälle nimillä admin, orackle, usuaric, test, uesr, ftpuser, test1, test2 ja ubuntu.  
+Todennköisesti näillä on kokeltu jotain tyypillistä salasanayhdistelmiä, kunnes palvelin ei enää hyväksy uusia yrityksiä.  
+Kyse on siis automatisoidusta hyökkäyksestä.  
+Tämän vuoksi varmasti salasanojen tärkeyttä on myös korostettu niin paljon.  
+
+### g) Load average näkyy esim 'uptime', 'top', 'htop'. Prosessoriydinten määrä näkyy 'nproc'. Miten load average tulkitaan? Miksi prosessoriydinten määrä on tässä kiinnostava? Vapaaehtoisena bonuksena voit miettiä, mitä hyötyä on kuormituslukemasta, joka voi mennä yli yhden eli yli 100%.  
+
+Testataan uptime-komennolla. 
+*uptime* 
+
+![uptime](h7images/uptime.png)  
+
+Tiedot ovat aika tylsiä, sillä vaikka näemme kauanko palvelin on ollut pystyssä ja aktiivisiä käyttäjiä on vain yksi.  
+load average kertoo vain ettei kuormaa ole ollut. 
+Lukuja on 3, koska ne kertovat keskimääräisen kuorman 1 minuutin ajalla, 5 minuttin ajalla ja 15 minuutin ajalla.  
+Tilanne jossa  yksi prosessoriydin  
+- 0 ei toimintaa
+- 1 yksi prosessi käyttää CPU:ta 
+- 2 yksi prosessi käyttää CPU:ta ja toinen odottaa vuoroaan
+- 4 yksi prosessi käyttää CPU:ta ja kolme odottaa vuoroaan
+
+Tilanne jossa neljä prosesoriydintä  
+- 0 ei toimintaa
+- 1 yksi prosessi käyttää CPU:ta 
+- 2 kaksi prosessia käyttää CPU:ta 
+- 4 kaikki CPU:t käytössä 
+- 7 kaksi prosessia käyttää CPU:ta  ja kolme odottaa vuoroaan
+
+Luvut voivat olla myös desimaalikujuja.
+
+Tehdään pieni testi ja stress ja katsotaan miten kone reagoi.  
+
+[uptime](h7images/uptime-1.png)  
+
+Prosessien keskimääräinen kuorma jää siis viimeisen minuutin aikana 0.52 ja 5 minuurin aikana 0.13 ja 15 minuutin aikana 0.04.  
+
+Palvelimella on vain yksi prosessoriydin, mutta en silti onnistunut saamaan täyttä kuormaa load averageen.  
+
+
+### h) Analysoi lopuksi koko ajalta keräämäsi kuormitustiedot. Löydätkö esimerkiksi aiheuttamasi kuormituspiikin?
 
 
 ## Lähteet 
@@ -260,8 +405,10 @@ df komennon käyttö lähde: https://linuxize.com/post/how-to-check-disk-space-i
 Vanha laboratirioharjoitus. Kohta g: https://terokarvinen.com/2024/arvioitava-laboratorioharjoitus-2024-syksy-linux-palvelimet/ 
 GeegsForGeegs.org - Sar command to monitor system performance: https://www.geeksforgeeks.org/linux-unix/sar-command-linux-monitor-system-performance/  
 GeegsForGeegs.org - Stress käytön esimerkkeja: https://www.geeksforgeeks.org/linux-unix/linux-stress-command-with-examples/   
-GeegsForGeegs.org - iotop käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/iotop-command-in-linux-with-examples/
-GeegsForGeegs.org - dstat käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/dstat-command-in-linux-with-examples/
+GeegsForGeegs.org - iotop käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/iotop-command-in-linux-with-examples/  
+GeegsForGeegs.org - dstat käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/dstat-command-in-linux-with-examples/  
+GeegsForGeegs.org - ss käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/ss-command-in-linux/  
+Hostinger - grep käyttö ja esimerkkejä: https://www.hostinger.com/tutorials/grep-command-in-linux?utm_campaign=Generic-Tutorials-DSA-t1|NT:Se|LO:Other-EU&utm_medium=ppc&gad_source=1&gad_campaignid=12231291749&gclid=Cj0KCQiA2bTNBhDjARIsAK89wlFuNVhD1yJl1dEhiursCQ18MtUfMuniPmsr5wBB-ZX6Rqhabv0LF_gaAjsaEALw_wcB  
 
 
 
