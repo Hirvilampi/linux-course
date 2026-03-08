@@ -253,7 +253,7 @@ reboot
 17:51 restart  
 17:52 kaikki toimii    
 17:56 virtualbox guest additions.. kai tämä on tarkoitus asentaa  
-![virtualbox guest additions](./h1images/vboxgas_star.png)
+![virtualbox guest additions](./h1images/vboxgas_start.png)
 
 18:00 asennettu ohjeiden mukaan, ei virheitä, ei myöskään sudo bash VBoxLinuxAdditions.run käytettäessä  
 
