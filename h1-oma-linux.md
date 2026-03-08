@@ -2,16 +2,16 @@ Kirjoittanut Timo Lampinen
 Linux-palvelimet kurssi - ICI003AS2A-3016   
 Tehtävä H1 sivulta: https://terokarvinen.com/linux-palvelimet/  
 
-# TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN LINUXILLE
+# TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN LINUXILLE  
+  
+ Käytössä on PC-pohjainen Linux Debian 13.  
+ Kernel: versio 6.12.63+deb13-amd64  
+ Prosessori: Intel Xeon E3-1230  
+ Muisti: 16Mb muistia  
+ Levy: SSD   
+ Näytönohjain: Nvidia   
 
- Käytössä on PC-pohjainen Linux Debian 13. 
- Kernel: versio 6.12.63+deb13-amd64
- Prosessori: Intel Xeon E3-1230
- Muisti: 16Mb muistia
- Levy: SSD
- Näytönohjain: Nvidia 
-
- ## Virtualboxin asentaminen
+ ## Virtualboxin asentaminen  
 
 En löytänyt VirtualBoxia suoraan Debian 13:n paketeista, joten aluksi asensin ensin **KVM:n ja Virtual Machine Managerin**, joilla voi myös luoda virtuaalikoneita.  [Siirry KVM ja Virtual Machine Manager asennukseen](#kvm-ja-virtual-machine-manager)  
 Tulin myöhemmin huomaamaan, että tuo asennus aiheuttaa ristiriitoja käynnistäessäni VirtualBoxin.
