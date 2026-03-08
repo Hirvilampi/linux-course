@@ -384,8 +384,8 @@ Luvut voivat olla myös desimaalikujuja.
 
 Tehdään pieni testi ja stress ja katsotaan miten kone reagoi.  
 
-[uptime stress test](h7images/uptime-1.png)  
-[uptime stress testi](https://github.com/Hirvilampi/linux-course/blob/main/h7images/uptime-1.png)
+
+![stress uptime load average test](h7images/stress-uptime-2.png)  
 
 Prosessien keskimääräinen kuorma jää siis viimeisen minuutin aikana 0.52 ja 5 minuurin aikana 0.13 ja 15 minuutin aikana 0.04.  
 
