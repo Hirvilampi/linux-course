@@ -319,11 +319,11 @@ State SYN-RECV tarkoittaa, että yhteyden muodostus on kesken.
 näyttää kuuntelevat upd socketit. State on UNCONN, koska upd ei muodosta pysyviä yhteyksiä. 
 Komento voidaan antaa myös muodossa: *ss -ul*  
 
-![ss ](h7images/ss-ul.png) 
+![ss upd 1](h7images/ss-ul.png) 
 
 *ss --listening --udp*  
 
-![ss ](h7images/ss-udp-2.png)  
+![ss upd 2](h7images/ss-upd-2.png)  
 
 Vastaus on sama kuin ylemmässä, koska komento on myöskin sama.  
 
@@ -384,7 +384,7 @@ Luvut voivat olla myös desimaalikujuja.
 
 Tehdään pieni testi ja stress ja katsotaan miten kone reagoi.  
 
-[uptime](h7images/uptime-1.png)  
+[uptime stress test](h7images/uptime-1.png)  
 
 Prosessien keskimääräinen kuorma jää siis viimeisen minuutin aikana 0.52 ja 5 minuurin aikana 0.13 ja 15 minuutin aikana 0.04.  
 
