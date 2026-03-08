@@ -102,7 +102,39 @@ Puutteet korjattu
 
 ## c) Laita Linuxiin uusi, itse tekemäsi komento niin, että kaikki käyttäjät voivat ajaa sitä.  
 
-KESKEN - tais tehty, mutta täytyy dokumentoidata
+Päätin tehdä scriptin, joka näyttää serverin tietoja yhdellä komennolla. Koska komentoa server ei ole, päätin tehdä sen sille nimelle  
+*micro server* 
+
+![käynnistän micro editorin](h7images/micro-server.png)
+
+Alkuun asetetaan, millä komento ajetaan eli bash. Sen jälkeen muut kommennot:  
+*#!/bin/bash* määrittää millä komennolla script suoritetaan. Scripteissä se on bash    
+*echo "Server: $(hostname)* tulostaa Server: ja hostname. Lähde: https://linuxize.com/post/echo-command-in-linux-with-examples/    
+"echo "User: $(whoami)* tulostaa User: ja käyttänimen  
+*echo "Uptime:"* tulostaa Uptime:  
+*uptime* tulostaa kuinka kauan severi on pyörinyt. Lähde: https://www.site24x7.com/learn/linux/uptime.html   
+*echo "Disk usage:"*  tulostaa Disk usage:  
+*df -h /* tulostaa järjestelmän levytilan käytön tietoja. -h näyttää koko tiedot luettavassa muodossa (KB, MB, GB). / antaa poluksi root kansion, eli koko järjestelmän tilankäyttö nähdään käyttäen tätä. Lähde: https://linuxize.com/post/how-to-check-disk-space-in-linux-using-the-df-command/  
+
+![serverin scriptn](h7images/server-script.png)
+
+Script täytyy muuttaa ensin ajettavaan muotoon oikeuksia muokkaamalla ja sen jälkeen se voidaan ajaa.  
+*chmod +x server*  
+*./server*  
+
+![server oikeudet ja ajo, eli testaus toimiiko](h7images/server-ajo.png)
+
+Siirretään script /usr/local/bin kansioon ja ajetaan se käskyillä  
+*sudo cp server /usr/local/bin*  
+*server*  
+
+![kopioidaan script /usr/local/bin ja ajetaan se](h7images/server-for-all.png)
+
+Toimii.
+
+![käynnistän micro editorin](h7images/micro-server.png)
+
+
 
 ## d) Ratkaise vanha arvioitava laboratorioharjoitus soveltuvin osin.  
 
@@ -113,3 +145,7 @@ KESKEN - tais tehty, mutta täytyy dokumentoidata
 Karvinen 2026:  https://terokarvinen.com/linux-palvelimet/  
 C-ohjelman lähde:  https://www.geeksforgeeks.org/c/c-hello-world-program/  
 Go-ohjelman lähde: https://gobyexample.com/hello-world  
+echo komennon lähde: https://linuxize.com/post/echo-command-in-linux-with-examples/  
+uptime komennon käyttö lähde: https://www.site24x7.com/learn/linux/uptime.html  
+df komennon käyttö lähde: https://linuxize.com/post/how-to-check-disk-space-in-linux-using-the-df-command/  
+
