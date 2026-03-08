@@ -2,7 +2,7 @@ Kirjoittanut Timo Lampinen 2026
 Linux-palvelimet kurssi - ICI003AS2A-3016  
 Tehtävä h7 sivulta: https://terokarvinen.com/linux-palvelimet/  
 
-# Tehtava H7 Maalisuora
+# Tehtävä H7 Maalisuora
 
 ## a) Kirjoita Hei Maailma kolmella kielellä  
 
@@ -19,11 +19,11 @@ Ensin päivitetään ja asennetaan ohjelmat Python, C ja Go käskyillå:
 
 ![update ja install python3 gcc ja go ](h7images/asenna-ohj-kielet.png)  
 
-Siirrytään aiemmin tehtyyn scripts hakemistoon ja aletaan tekemään micro-ohjelmalla heipython.py tiedostoa  
+Siirrytään aiemmin tehtyyn scripts-hakemistoon ja aletaan tekemään micro-editorilla heipython.py tiedostoa  
 *cd scripts*
 *micro heipython.py*
 
-![siirtyään kansioon ja aletaan micro:lla kirjoitta koodia](h7images/micro-py-1.png)  
+![siirtyään kansioon ja aletaan micro:lla kirjoittamaan koodia](h7images/micro-py-1.png)  
 
 Kirjoitetaan print komento python-kielellä 
 
@@ -59,13 +59,13 @@ Suoritetaan komento ja ajetaan ohjelma heic tässä kansiossa komennoilla:
 
 ![koodin sisältö micro ohjelmassa](h7images/c-ajo-1.png)  
 
-Huomaamme, että print komentomme lopussa ei ole rivinvaihtoa, joten komentokehoite tullee kirjoituksen perään.  
+Huomaamme, että printf komentomme lopussa ei ole rivinvaihtoa, joten komentokehoite tulostuu heti kirjoituksen perään.  
 Lisätään microlla rivinvaihto, joka toteutuu, kun laitetaan \n  printf komennon sisälle. 
 
 ![muokataan koodia](h7images/c-code-2.png)  
 
 Käännetään ohjelma ja ajetaan se:  
-*gcc heic-c -o heic*  
+*gcc heic.c -o heic*  
 *./heic*
 
 ![C tiedoston kääntäminen ohjelmaksi ja ajaminen](h7images/c-ajo-2.png)  
@@ -102,7 +102,7 @@ Puutteet korjattu
 
 ## c) Laita Linuxiin uusi, itse tekemäsi komento niin, että kaikki käyttäjät voivat ajaa sitä.  
 
-Päätin tehdä scriptin, joka näyttää serverin tietoja yhdellä komennolla. Koska komentoa server ei ole, päätin tehdä sen sille nimelle  
+Päätin tehdä scriptin, joka näyttää palvelimen tietoja yhdellä komennolla. Koska komentoa server ei ole, päätin tehdä sen sille nimelle  
 *micro server* 
 
 ![käynnistän micro editorin](h7images/micro-server.png)
@@ -112,9 +112,9 @@ Alkuun asetetaan, millä komento ajetaan eli bash. Sen jälkeen muut kommennot:
 *echo "Server: $(hostname)* tulostaa Server: ja hostname. Lähde: https://linuxize.com/post/echo-command-in-linux-with-examples/    
 "echo "User: $(whoami)* tulostaa User: ja käyttänimen  
 *echo "Uptime:"* tulostaa Uptime:  
-*uptime* tulostaa kuinka kauan severi on pyörinyt. Lähde: https://www.site24x7.com/learn/linux/uptime.html   
+*uptime* tulostaa kuinka kauan palvelin on pyörinyt. Lähde: https://www.site24x7.com/learn/linux/uptime.html   
 *echo "Disk usage:"*  tulostaa Disk usage:  
-*df -h /* tulostaa järjestelmän levytilan käytön tietoja. -h näyttää koko tiedot luettavassa muodossa (KB, MB, GB). / antaa poluksi root kansion, eli koko järjestelmän tilankäyttö nähdään käyttäen tätä. Lähde: https://linuxize.com/post/how-to-check-disk-space-in-linux-using-the-df-command/  
+*df -h /* tulostaa järjestelmän levytilan käytön tietoja. -h näyttää koko tiedot luettavassa muodossa (KB, MB, GB). / viittaa juurihakemistoon (root directory). df -h / näyttää sen tiedostojärjestelmän levytilan, jossa juurihakemisto sijaitsee. Lähde: https://linuxize.com/post/how-to-check-disk-space-in-linux-using-the-df-command/  
 
 ![serverin scriptn](h7images/server-script.png)
 
@@ -263,11 +263,11 @@ esim: katsotaan alhaalla olevaa riviä, jossa mainitaan sshd-session käytössä
 
 Prosessorilla voi olla käytössä vain 100%. Nyt yhteenlaskettu kuorma on 101%. Miten tämä on mahdollista?  
 Kyseessä on varmasti hyvin harvinainen pyöristysvirhe, jossa esimerkiksi sys arvo on oikesti 0,5% ja usr arvo on 98,5%.  
-Molemmat näytetää kuitenkin ilman desimaaleja ja tässä harvinaisessa tapauksessa molemmat pyöristetään ylöspäin.  
+Molemmat näytetää kuitenkin ilman desimaaleja ja tässä tapauksessa molemmat pyöristetään ylöspäin.  
 Tätä tukevat myös huomiot, että jossain kohti yhteenlaskettu summa on alle 100%, kuten 99 tai 98 prosenttia. Tämä on täysin mahdollista kun otetaan huomioon pyöristykseen liittyvät säännöt.  
   
 ajetaan samalla 
-*stress -c 8 timeout 10*  
+*stress -c 8 --timeout 10*  
 
 tulokset dstat  
 
@@ -329,7 +329,7 @@ Vastaus on sama kuin ylemmässä, koska komento on myöskin sama.
 
 ### f) grep -i error /var/log/syslog; grep -ir error /var/log/  
 
-Katsotaan ensin grep komennon käyttö näissä esimerkeissä. Lähde: https://www.hostinger.com/tutorials/grep-command-in-linux?utm_campaign=Generic-Tutorials-DSA-t1|NT:Se|LO:Other-EU&utm_medium=ppc&gad_source=1&gad_campaignid=12231291749&gclid=Cj0KCQiA2bTNBhDjARIsAK89wlFuNVhD1yJl1dEhiursCQ18MtUfMuniPmsr5wBB-ZX6Rqhabv0LF_gaAjsaEALw_wcB
+Katsotaan ensin grep komennon käyttö näissä esimerkeissä. Lähde: https://www.hostinger.com/tutorials/grep-command-in-linux  
 
 Grep syntaksi on:  
 *grep [options] pattern [FILE]* 
@@ -353,7 +353,7 @@ Tyhjä. Missään tiedostossa ei ole error tekstiä.
 
 Tässä näemme vain alun ja huomio kiinnittyy epäonnistuneisiin yrityksiin päästä sisälle.   
 Siellä on selkeästi yritetty päästä sisälle nimillä admin, orackle, usuaric, test, uesr, ftpuser, test1, test2 ja ubuntu.  
-Todennköisesti näillä on kokeltu jotain tyypillistä salasanayhdistelmiä, kunnes palvelin ei enää hyväksy uusia yrityksiä.  
+Todennköisesti näillä on kokeiltu jotain tyypillistä salasanayhdistelmiä, kunnes palvelin ei enää hyväksy uusia yrityksiä.  
 Kyse on siis automatisoidusta hyökkäyksestä.  
 Tämän vuoksi varmasti salasanojen tärkeyttä on myös korostettu niin paljon.  
 
@@ -366,21 +366,21 @@ Testataan uptime-komennolla.
 
 Tiedot ovat aika tylsiä, sillä vaikka näemme kauanko palvelin on ollut pystyssä ja aktiivisiä käyttäjiä on vain yksi.  
 load average kertoo vain ettei kuormaa ole ollut. 
-Lukuja on 3, koska ne kertovat keskimääräisen kuorman 1 minuutin ajalla, 5 minuttin ajalla ja 15 minuutin ajalla.  
+Lukuja on 3, koska ne kertovat keskimääräisen kuorman 1 minuutin ajalla, 5 minuutin ajalla ja 15 minuutin ajalla.  
 Tilanne jossa  yksi prosessoriydin  
 - 0 ei toimintaa
 - 1 yksi prosessi käyttää CPU:ta 
 - 2 yksi prosessi käyttää CPU:ta ja toinen odottaa vuoroaan
 - 4 yksi prosessi käyttää CPU:ta ja kolme odottaa vuoroaan
 
-Tilanne jossa neljä prosesoriydintä  
+Tilanne jossa neljä prosessoriydintä  
 - 0 ei toimintaa
 - 1 yksi prosessi käyttää CPU:ta 
 - 2 kaksi prosessia käyttää CPU:ta 
 - 4 kaikki CPU:t käytössä 
-- 7 kaksi prosessia käyttää CPU:ta  ja kolme odottaa vuoroaan
+- 7 neljä prosessia käyttää CPU:ta ja kolme odottaa vuoroaan
 
-Luvut voivat olla myös desimaalikujuja.
+Luvut voivat olla myös desimaalilukuja.
 
 Tehdään pieni testi ja stress ja katsotaan miten kone reagoi.  
 
@@ -409,7 +409,8 @@ GeegsForGeegs.org - Stress käytön esimerkkeja: https://www.geeksforgeeks.org/l
 GeegsForGeegs.org - iotop käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/iotop-command-in-linux-with-examples/  
 GeegsForGeegs.org - dstat käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/dstat-command-in-linux-with-examples/  
 GeegsForGeegs.org - ss käyttö ja esimerkkejä: https://www.geeksforgeeks.org/linux-unix/ss-command-in-linux/  
-Hostinger - grep käyttö ja esimerkkejä: https://www.hostinger.com/tutorials/grep-command-in-linux?utm_campaign=Generic-Tutorials-DSA-t1|NT:Se|LO:Other-EU&utm_medium=ppc&gad_source=1&gad_campaignid=12231291749&gclid=Cj0KCQiA2bTNBhDjARIsAK89wlFuNVhD1yJl1dEhiursCQ18MtUfMuniPmsr5wBB-ZX6Rqhabv0LF_gaAjsaEALw_wcB  
+Hostinger - grep käyttö ja esimerkkejä: https://www.hostinger.com/tutorials/grep-command-in-linux  
+
 
 
 
