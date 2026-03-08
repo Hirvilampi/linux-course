@@ -1,37 +1,44 @@
 Kirjoittanut Timo Lampinen  
 Linux-palvelimet kurssi - ICI003AS2A-3016   
-Tehtävä h1 sivulta: https://terokarvinen.com/linux-palvelimet/  
+Tehtävä H1 sivulta: https://terokarvinen.com/linux-palvelimet/  
 
 # TEHTÄVÄ H1 - LINUXIN ASENTAMINEN VIRTUAALIKONEESEEN LINUXILLE
 
- Käytössä pc-pohjainen linux Debian 13. Kernel versio 6.12.63+deb13-amd64
- rautana prossa Intel Xeon E3-1230
- 16Mb muistia, SSd:levy, Nvidia näytönohjain
+ Käytössä on PC-pohjainen Linux Debian 13. 
+ Kernel: versio 6.12.63+deb13-amd64
+ Prosessori: Intel Xeon E3-1230
+ Muisti: 16Mb muistia
+ Levy: SSD
+ Näytönohjain: Nvidia 
 
  ## Virtualboxin asentaminen
 
-En löytänyt VirtualBoxia suoraan, joten asensin ensin Debianin KVM ja Virtual Machine Managerin, joilla voi myös tehdä virtuaalipalvelimen. 
-Jos haluat lukea harharetken ja vasta sitten lukea Virtualboxin asentamisen jatka lukemista..  
-Tai sitten [klikkaa tästä ja mene suoraan VirtualBoxin asennukseen](#asennetaan-virtualbox)  
+En löytänyt VirtualBoxia suoraan Debian 13:n paketeista, joten aluksi asensin **KVM:n ja Virtual Machine Managerin**, joilla voi myös luoda virtuaalikoneita.  
 
+Jos haluat lukea tämän pienen harharetken, jatka lukemista.  
+Jos taas haluat siirtyä suoraan VirtualBoxin asennukseen, klikkaa tästä:  
+[Siirry VirtualBoxin asennukseen](#asennetaan-virtualbox)   
 
- 15:30
- Seurasin ohjeita ja selvisi, että Debian 13 mukana ei tule oletuksena Virtualboxia. 
- Yritin seurata Oraclen sivun ohjeita, mutta tämähän meni monimutkaiseksi..
- Käytännössä nyt näyttää siltä, että ilmeisesti virtualboxista ei ole olemassa Debian 13 tukevaa versiota.
- Vaihtoehdoiksi siis jää:
- 1. asentaa debian12 Bookworm ja siihen VirtualBox
- 2. asentaa m1 mac:lle virtualbox, mikä taitaa olla hankalaa sekin
- 3. asentaa KVM + virt-manager ja tehdä tätä kautta virtuaalikone
+### Ensimmäinen yritys  
 
-Kokeilen asentaa KVM + virt-managerin. Debian 12 asennus toiseksi olisi varmaan helpompaa, mutta ehkäpä
-tämä opettaa enemmän. Katsotaan miten käy. Kysyn ChatGTP:ltä ohjeet asennukseen. 
-### huom! Myöhemmin asennan Virtuaboxin Debianiin, koska sekin kyllä onnistuu
+15:30  
+Seurasin ohjeita ja selvisi, että Debian 13:n mukana ei tule oletuksena VirtualBoxia.  
+  
+Yritin seurata Oraclen sivujen ohjeita, mutta asennus vaikutti melko monimutkaiselta. Näytti myös siltä, ettei VirtualBoxille välttämättä ole vielä virallista tukea Debian 13:lle.  
 
+Vaihtoehtoja olivat siis:  
 
-## KVM ja Virtual Machine Manager asennus
+1. asentaa Debian 12 ja siihen VirtualBox  
+2. asentaa VirtualBox Mac M1:lle  
+3. asentaa KVM + virt-manager ja käyttää niitä virtuaalikoneiden luomiseen  
 
-16:13 Asennus onnistui helposti ja Virtual Machine Manager on nyt auki.
+Päätin kokeilla vaihtoehtoa 3. Debian 12 olisi ehkä ollut helpompi ratkaisu, mutta ajattelin että tästä voisi oppia enemmän.  Kysyn ChatGTP:ltä ohjeet asennukseen. 
+
+## KVM ja Virtual Machine Manager 
+
+16:13  
+
+Asennus onnistui helposti ja Virtual Machine Manager on nyt auki.
 
 Minulla on mac:ssä BalenaEtcher ohjelma, millä tein edellisen Linuxin käynnistystikun. Sillion "tikkuna" toimi
 500 gigan kovalevy. Nyt ostin usb3.0 tikun tätä varten. Latauksen pistin tulemaan tuossa jo hetki sitten. 
@@ -102,8 +109,13 @@ En tänään torstaina kuluta enempää aikaa, jos joudunkin asentamaan vielä d
 
 ## Asennetaan virtualbox  
 
-18:17 -> kokeilen uusia ohjeita: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/
-tähän pari kuvaa 
+18:17 -> kokeilen uusia ohjeita: https://www.linuxtechi.com/how-to-install-virtualbox-on-debian/  
+
+Asennetaan tarvittavat ohjelmat kuvassa näkyvillä käskyillä ja päädytään asentamaan lopuksi virtualbox:  
+
+![asennetaan virtualboxin asentamiseen tarvittavia ohjelmia](./h1images/install-1st.png)  
+
+![specify virtual hardware](./h1images/install-2nd.png)
 
 18:25 uuden levykuvan lataus alkamaan
 
