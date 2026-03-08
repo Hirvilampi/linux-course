@@ -31,3 +31,9 @@ c) Vapaaehtoinen: Tee weppilomake, jossa on käyttäjätunnus ja salasana. Käyt
 
 
 ## b) Ristiinarvioinnin jälkeen olennaisesti parannetut tehtävät
+
+![h1 oma linux](https://github.com/Hirvilampi/linux-course/blob/main/h1-oma-linux.md)
+
+Koko raporttia on parannettu tekemällä siitä selkeämmin seurattava ja korjattu paljon kirjoitusvirheitä. Lisäksi markdown on nyt paremmin hallussa ja sain tehtyä lisää rivinvaihtoja, mikä selkeyttää rakennetta. Raportti parani, mutta puutteelliset kuvat ja dokumentointi vaivaavat tätä edelleen.  
+
+
