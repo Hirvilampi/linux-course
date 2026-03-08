@@ -130,14 +130,13 @@ Siirretään script /usr/local/bin kansioon ja ajetaan se käskyillä
 
 ![kopioidaan script /usr/local/bin ja ajetaan se](h7images/server-for-all.png)
 
-Toimii.
-
-![käynnistän micro editorin](h7images/micro-server.png)
-
+Toimii. 
 
 
 ## d) Ratkaise vanha arvioitava laboratorioharjoitus soveltuvin osin.  
 
+
+![käynnistän micro editorin](h7images/micro-server.png)
 
 
 ## Lähteet 
